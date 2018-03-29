@@ -28,14 +28,17 @@ public class ArticleServiceImpl implements ArticleService {
 
     public PageInfo<ArticleEntity> articleList(Integer pageNumber, Integer count, Integer classification, Integer reading, String tag) {
         ArticleEntityExample articleEntityExample = new ArticleEntityExample();
+        ArticleEntityExample.Criteria criteria = articleEntityExample.createCriteria();
         if (classification != 999){
-            articleEntityExample.createCriteria().andClassificationIdEqualTo(classification);
+            criteria.andClassificationIdEqualTo(classification);
         }
         if (reading != 0){
             articleEntityExample.setOrderByClause("article_reading desc");
         }
         if (tag != "0"){
-            articleEntityExample.createCriteria().andArticleTagLike(tag);
+            //Mybatis自动生成的查询selectByExample(TExample example) 中like需要自己写通配符
+            tag = "%"+tag+"%";
+            criteria.andArticleTagLike(tag);
         }
         PageHelper.startPage(pageNumber,count);
         List<ArticleEntity> list = articleEntityMapper.selectByExampleWithBLOBs(articleEntityExample);
