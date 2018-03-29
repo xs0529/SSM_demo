@@ -5,21 +5,21 @@ import java.util.Date;
 public class ArticleEntity {
     private Long articleId;
 
+    private Integer classificationId;
+
     private String articleTitle;
 
     private String articleState;
 
-    private Date articleCtime;
-
-    private Date articleMtime;
+    private String articleImage;
 
     private Long articleReading;
 
-    private String articleImage;
-
     private String articleTag;
 
-    private Integer classificationId;
+    private Date articleCtime;
+
+    private Date articleMtime;
 
     private String articleBody;
 
@@ -29,6 +29,14 @@ public class ArticleEntity {
 
     public void setArticleId(Long articleId) {
         this.articleId = articleId;
+    }
+
+    public Integer getClassificationId() {
+        return classificationId;
+    }
+
+    public void setClassificationId(Integer classificationId) {
+        this.classificationId = classificationId;
     }
 
     public String getArticleTitle() {
@@ -47,6 +55,30 @@ public class ArticleEntity {
         this.articleState = articleState == null ? null : articleState.trim();
     }
 
+    public String getArticleImage() {
+        return articleImage;
+    }
+
+    public void setArticleImage(String articleImage) {
+        this.articleImage = articleImage == null ? null : articleImage.trim();
+    }
+
+    public Long getArticleReading() {
+        return articleReading;
+    }
+
+    public void setArticleReading(Long articleReading) {
+        this.articleReading = articleReading;
+    }
+
+    public String getArticleTag() {
+        return articleTag;
+    }
+
+    public void setArticleTag(String articleTag) {
+        this.articleTag = articleTag == null ? null : articleTag.trim();
+    }
+
     public Date getArticleCtime() {
         return articleCtime;
     }
@@ -61,38 +93,6 @@ public class ArticleEntity {
 
     public void setArticleMtime(Date articleMtime) {
         this.articleMtime = articleMtime;
-    }
-
-    public Long getArticleReading() {
-        return articleReading;
-    }
-
-    public void setArticleReading(Long articleReading) {
-        this.articleReading = articleReading;
-    }
-
-    public String getArticleImage() {
-        return articleImage;
-    }
-
-    public void setArticleImage(String articleImage) {
-        this.articleImage = articleImage == null ? null : articleImage.trim();
-    }
-
-    public String getArticleTag() {
-        return articleTag;
-    }
-
-    public void setArticleTag(String articleTag) {
-        this.articleTag = articleTag == null ? null : articleTag.trim();
-    }
-
-    public Integer getClassificationId() {
-        return classificationId;
-    }
-
-    public void setClassificationId(Integer classificationId) {
-        this.classificationId = classificationId;
     }
 
     public String getArticleBody() {

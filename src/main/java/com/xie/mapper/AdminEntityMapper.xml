@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xie.dao.AdminEntityMapper">
+  <resultMap id="BaseResultMap" type="com.xie.entity.AdminEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="admin_username" jdbcType="VARCHAR" property="adminUsername" />
+    <result column="admin_password" jdbcType="VARCHAR" property="adminPassword" />
+    <result column="admin_name" jdbcType="VARCHAR" property="adminName" />
+    <result column="admin_body" jdbcType="VARCHAR" property="adminBody" />
+    <result column="admin_img" jdbcType="VARCHAR" property="adminImg" />
+    <result column="admin_text" jdbcType="VARCHAR" property="adminText" />
+    <result column="admin_news" jdbcType="INTEGER" property="adminNews" />
+    <result column="admin_notice" jdbcType="INTEGER" property="adminNotice" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, admin_username, admin_password, admin_name, admin_body, admin_img, admin_text, 
+    admin_news, admin_notice
+  </sql>
+  <select id="selectByExample" parameterType="com.xie.entity.AdminEntityExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from admin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from admin
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from admin
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xie.entity.AdminEntityExample">
+    delete from admin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xie.entity.AdminEntity">
+    insert into admin (id, admin_username, admin_password, 
+      admin_name, admin_body, admin_img, 
+      admin_text, admin_news, admin_notice
+      )
+    values (#{id,jdbcType=INTEGER}, #{adminUsername,jdbcType=VARCHAR}, #{adminPassword,jdbcType=VARCHAR}, 
+      #{adminName,jdbcType=VARCHAR}, #{adminBody,jdbcType=VARCHAR}, #{adminImg,jdbcType=VARCHAR}, 
+      #{adminText,jdbcType=VARCHAR}, #{adminNews,jdbcType=INTEGER}, #{adminNotice,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xie.entity.AdminEntity">
+    insert into admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="adminUsername != null">
+        admin_username,
+      </if>
+      <if test="adminPassword != null">
+        admin_password,
+      </if>
+      <if test="adminName != null">
+        admin_name,
+      </if>
+      <if test="adminBody != null">
+        admin_body,
+      </if>
+      <if test="adminImg != null">
+        admin_img,
+      </if>
+      <if test="adminText != null">
+        admin_text,
+      </if>
+      <if test="adminNews != null">
+        admin_news,
+      </if>
+      <if test="adminNotice != null">
+        admin_notice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="adminUsername != null">
+        #{adminUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="adminPassword != null">
+        #{adminPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="adminName != null">
+        #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="adminBody != null">
+        #{adminBody,jdbcType=VARCHAR},
+      </if>
+      <if test="adminImg != null">
+        #{adminImg,jdbcType=VARCHAR},
+      </if>
+      <if test="adminText != null">
+        #{adminText,jdbcType=VARCHAR},
+      </if>
+      <if test="adminNews != null">
+        #{adminNews,jdbcType=INTEGER},
+      </if>
+      <if test="adminNotice != null">
+        #{adminNotice,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xie.entity.AdminEntityExample" resultType="java.lang.Long">
+    select count(*) from admin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update admin
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.adminUsername != null">
+        admin_username = #{record.adminUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adminPassword != null">
+        admin_password = #{record.adminPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adminName != null">
+        admin_name = #{record.adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adminBody != null">
+        admin_body = #{record.adminBody,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adminImg != null">
+        admin_img = #{record.adminImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adminText != null">
+        admin_text = #{record.adminText,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adminNews != null">
+        admin_news = #{record.adminNews,jdbcType=INTEGER},
+      </if>
+      <if test="record.adminNotice != null">
+        admin_notice = #{record.adminNotice,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update admin
+    set id = #{record.id,jdbcType=INTEGER},
+      admin_username = #{record.adminUsername,jdbcType=VARCHAR},
+      admin_password = #{record.adminPassword,jdbcType=VARCHAR},
+      admin_name = #{record.adminName,jdbcType=VARCHAR},
+      admin_body = #{record.adminBody,jdbcType=VARCHAR},
+      admin_img = #{record.adminImg,jdbcType=VARCHAR},
+      admin_text = #{record.adminText,jdbcType=VARCHAR},
+      admin_news = #{record.adminNews,jdbcType=INTEGER},
+      admin_notice = #{record.adminNotice,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xie.entity.AdminEntity">
+    update admin
+    <set>
+      <if test="adminUsername != null">
+        admin_username = #{adminUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="adminPassword != null">
+        admin_password = #{adminPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="adminName != null">
+        admin_name = #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="adminBody != null">
+        admin_body = #{adminBody,jdbcType=VARCHAR},
+      </if>
+      <if test="adminImg != null">
+        admin_img = #{adminImg,jdbcType=VARCHAR},
+      </if>
+      <if test="adminText != null">
+        admin_text = #{adminText,jdbcType=VARCHAR},
+      </if>
+      <if test="adminNews != null">
+        admin_news = #{adminNews,jdbcType=INTEGER},
+      </if>
+      <if test="adminNotice != null">
+        admin_notice = #{adminNotice,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xie.entity.AdminEntity">
+    update admin
+    set admin_username = #{adminUsername,jdbcType=VARCHAR},
+      admin_password = #{adminPassword,jdbcType=VARCHAR},
+      admin_name = #{adminName,jdbcType=VARCHAR},
+      admin_body = #{adminBody,jdbcType=VARCHAR},
+      admin_img = #{adminImg,jdbcType=VARCHAR},
+      admin_text = #{adminText,jdbcType=VARCHAR},
+      admin_news = #{adminNews,jdbcType=INTEGER},
+      admin_notice = #{adminNotice,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

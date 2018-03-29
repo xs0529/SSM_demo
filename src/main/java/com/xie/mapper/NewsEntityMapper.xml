@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xie.dao.NewsEntityMapper">
+  <resultMap id="BaseResultMap" type="com.xie.entity.NewsEntity">
+    <id column="news_id" jdbcType="INTEGER" property="newsId" />
+    <result column="news_body" jdbcType="VARCHAR" property="newsBody" />
+    <result column="news_type" jdbcType="VARCHAR" property="newsType" />
+    <result column="news_ctime" jdbcType="TIMESTAMP" property="newsCtime" />
+    <result column="news_mtime" jdbcType="TIMESTAMP" property="newsMtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    news_id, news_body, news_type, news_ctime, news_mtime
+  </sql>
+  <select id="selectByExample" parameterType="com.xie.entity.NewsEntityExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from news
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from news
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from news
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xie.entity.NewsEntityExample">
+    delete from news
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xie.entity.NewsEntity">
+    insert into news (news_id, news_body, news_type, 
+      news_ctime, news_mtime)
+    values (#{newsId,jdbcType=INTEGER}, #{newsBody,jdbcType=VARCHAR}, #{newsType,jdbcType=VARCHAR}, 
+      #{newsCtime,jdbcType=TIMESTAMP}, #{newsMtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xie.entity.NewsEntity">
+    insert into news
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="newsId != null">
+        news_id,
+      </if>
+      <if test="newsBody != null">
+        news_body,
+      </if>
+      <if test="newsType != null">
+        news_type,
+      </if>
+      <if test="newsCtime != null">
+        news_ctime,
+      </if>
+      <if test="newsMtime != null">
+        news_mtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="newsId != null">
+        #{newsId,jdbcType=INTEGER},
+      </if>
+      <if test="newsBody != null">
+        #{newsBody,jdbcType=VARCHAR},
+      </if>
+      <if test="newsType != null">
+        #{newsType,jdbcType=VARCHAR},
+      </if>
+      <if test="newsCtime != null">
+        #{newsCtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="newsMtime != null">
+        #{newsMtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xie.entity.NewsEntityExample" resultType="java.lang.Long">
+    select count(*) from news
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update news
+    <set>
+      <if test="record.newsId != null">
+        news_id = #{record.newsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.newsBody != null">
+        news_body = #{record.newsBody,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newsType != null">
+        news_type = #{record.newsType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newsCtime != null">
+        news_ctime = #{record.newsCtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.newsMtime != null">
+        news_mtime = #{record.newsMtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update news
+    set news_id = #{record.newsId,jdbcType=INTEGER},
+      news_body = #{record.newsBody,jdbcType=VARCHAR},
+      news_type = #{record.newsType,jdbcType=VARCHAR},
+      news_ctime = #{record.newsCtime,jdbcType=TIMESTAMP},
+      news_mtime = #{record.newsMtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xie.entity.NewsEntity">
+    update news
+    <set>
+      <if test="newsBody != null">
+        news_body = #{newsBody,jdbcType=VARCHAR},
+      </if>
+      <if test="newsType != null">
+        news_type = #{newsType,jdbcType=VARCHAR},
+      </if>
+      <if test="newsCtime != null">
+        news_ctime = #{newsCtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="newsMtime != null">
+        news_mtime = #{newsMtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xie.entity.NewsEntity">
+    update news
+    set news_body = #{newsBody,jdbcType=VARCHAR},
+      news_type = #{newsType,jdbcType=VARCHAR},
+      news_ctime = #{newsCtime,jdbcType=TIMESTAMP},
+      news_mtime = #{newsMtime,jdbcType=TIMESTAMP}
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </update>
+</mapper>

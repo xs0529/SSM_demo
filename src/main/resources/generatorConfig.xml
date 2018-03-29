@@ -31,5 +31,14 @@
         </javaClientGenerator>    
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->    
         <table tableName="article" domainObjectName="ArticleEntity"></table>
+        <table tableName="admin" domainObjectName="AdminEntity"></table>
+        <table tableName="classification" domainObjectName="ClassEntity"></table>
+        <table tableName="message" domainObjectName="MessageEntity"></table>
+        <table tableName="news" domainObjectName="NewsEntity"></table>
+        <table tableName="record" domainObjectName="RecordEntity"></table>
+        <table tableName="reply" domainObjectName="ReplyEntity"></table>
+        <table tableName="tag" domainObjectName="TagEntity"></table>
+        <table tableName="time_axis" domainObjectName="AxisEntity"></table>
+        <table tableName="user" domainObjectName="UserEntity"></table>
     </context>    
 </generatorConfiguration>     

@@ -3,14 +3,14 @@
 <mapper namespace="com.xie.dao.ArticleEntityMapper">
   <resultMap id="BaseResultMap" type="com.xie.entity.ArticleEntity">
     <id column="article_id" jdbcType="BIGINT" property="articleId" />
+    <result column="classification_id" jdbcType="INTEGER" property="classificationId" />
     <result column="article_title" jdbcType="VARCHAR" property="articleTitle" />
     <result column="article_state" jdbcType="VARCHAR" property="articleState" />
+    <result column="article_image" jdbcType="VARCHAR" property="articleImage" />
+    <result column="article_reading" jdbcType="BIGINT" property="articleReading" />
+    <result column="article_tag" jdbcType="VARCHAR" property="articleTag" />
     <result column="article_ctime" jdbcType="TIMESTAMP" property="articleCtime" />
     <result column="article_mtime" jdbcType="TIMESTAMP" property="articleMtime" />
-    <result column="article_reading" jdbcType="BIGINT" property="articleReading" />
-    <result column="article_image" jdbcType="VARCHAR" property="articleImage" />
-    <result column="article_tag" jdbcType="VARCHAR" property="articleTag" />
-    <result column="classification_id" jdbcType="INTEGER" property="classificationId" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xie.entity.ArticleEntity">
     <result column="article_body" jdbcType="LONGVARCHAR" property="articleBody" />
@@ -74,8 +74,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    article_id, article_title, article_state, article_ctime, article_mtime, article_reading, 
-    article_image, article_tag, classification_id
+    article_id, classification_id, article_title, article_state, article_image, article_reading, 
+    article_tag, article_ctime, article_mtime
   </sql>
   <sql id="Blob_Column_List">
     article_body
@@ -129,13 +129,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.xie.entity.ArticleEntity">
-    insert into article (article_id, article_title, article_state, 
-      article_ctime, article_mtime, article_reading, 
-      article_image, article_tag, classification_id, 
+    insert into article (article_id, classification_id, article_title, 
+      article_state, article_image, article_reading, 
+      article_tag, article_ctime, article_mtime, 
       article_body)
-    values (#{articleId,jdbcType=BIGINT}, #{articleTitle,jdbcType=VARCHAR}, #{articleState,jdbcType=VARCHAR}, 
-      #{articleCtime,jdbcType=TIMESTAMP}, #{articleMtime,jdbcType=TIMESTAMP}, #{articleReading,jdbcType=BIGINT}, 
-      #{articleImage,jdbcType=VARCHAR}, #{articleTag,jdbcType=VARCHAR}, #{classificationId,jdbcType=INTEGER}, 
+    values (#{articleId,jdbcType=BIGINT}, #{classificationId,jdbcType=INTEGER}, #{articleTitle,jdbcType=VARCHAR}, 
+      #{articleState,jdbcType=VARCHAR}, #{articleImage,jdbcType=VARCHAR}, #{articleReading,jdbcType=BIGINT}, 
+      #{articleTag,jdbcType=VARCHAR}, #{articleCtime,jdbcType=TIMESTAMP}, #{articleMtime,jdbcType=TIMESTAMP}, 
       #{articleBody,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xie.entity.ArticleEntity">
@@ -144,29 +144,29 @@
       <if test="articleId != null">
         article_id,
       </if>
+      <if test="classificationId != null">
+        classification_id,
+      </if>
       <if test="articleTitle != null">
         article_title,
       </if>
       <if test="articleState != null">
         article_state,
       </if>
+      <if test="articleImage != null">
+        article_image,
+      </if>
+      <if test="articleReading != null">
+        article_reading,
+      </if>
+      <if test="articleTag != null">
+        article_tag,
+      </if>
       <if test="articleCtime != null">
         article_ctime,
       </if>
       <if test="articleMtime != null">
         article_mtime,
-      </if>
-      <if test="articleReading != null">
-        article_reading,
-      </if>
-      <if test="articleImage != null">
-        article_image,
-      </if>
-      <if test="articleTag != null">
-        article_tag,
-      </if>
-      <if test="classificationId != null">
-        classification_id,
       </if>
       <if test="articleBody != null">
         article_body,
@@ -176,29 +176,29 @@
       <if test="articleId != null">
         #{articleId,jdbcType=BIGINT},
       </if>
+      <if test="classificationId != null">
+        #{classificationId,jdbcType=INTEGER},
+      </if>
       <if test="articleTitle != null">
         #{articleTitle,jdbcType=VARCHAR},
       </if>
       <if test="articleState != null">
         #{articleState,jdbcType=VARCHAR},
       </if>
+      <if test="articleImage != null">
+        #{articleImage,jdbcType=VARCHAR},
+      </if>
+      <if test="articleReading != null">
+        #{articleReading,jdbcType=BIGINT},
+      </if>
+      <if test="articleTag != null">
+        #{articleTag,jdbcType=VARCHAR},
+      </if>
       <if test="articleCtime != null">
         #{articleCtime,jdbcType=TIMESTAMP},
       </if>
       <if test="articleMtime != null">
         #{articleMtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="articleReading != null">
-        #{articleReading,jdbcType=BIGINT},
-      </if>
-      <if test="articleImage != null">
-        #{articleImage,jdbcType=VARCHAR},
-      </if>
-      <if test="articleTag != null">
-        #{articleTag,jdbcType=VARCHAR},
-      </if>
-      <if test="classificationId != null">
-        #{classificationId,jdbcType=INTEGER},
       </if>
       <if test="articleBody != null">
         #{articleBody,jdbcType=LONGVARCHAR},
@@ -217,29 +217,29 @@
       <if test="record.articleId != null">
         article_id = #{record.articleId,jdbcType=BIGINT},
       </if>
+      <if test="record.classificationId != null">
+        classification_id = #{record.classificationId,jdbcType=INTEGER},
+      </if>
       <if test="record.articleTitle != null">
         article_title = #{record.articleTitle,jdbcType=VARCHAR},
       </if>
       <if test="record.articleState != null">
         article_state = #{record.articleState,jdbcType=VARCHAR},
       </if>
+      <if test="record.articleImage != null">
+        article_image = #{record.articleImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.articleReading != null">
+        article_reading = #{record.articleReading,jdbcType=BIGINT},
+      </if>
+      <if test="record.articleTag != null">
+        article_tag = #{record.articleTag,jdbcType=VARCHAR},
+      </if>
       <if test="record.articleCtime != null">
         article_ctime = #{record.articleCtime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.articleMtime != null">
         article_mtime = #{record.articleMtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.articleReading != null">
-        article_reading = #{record.articleReading,jdbcType=BIGINT},
-      </if>
-      <if test="record.articleImage != null">
-        article_image = #{record.articleImage,jdbcType=VARCHAR},
-      </if>
-      <if test="record.articleTag != null">
-        article_tag = #{record.articleTag,jdbcType=VARCHAR},
-      </if>
-      <if test="record.classificationId != null">
-        classification_id = #{record.classificationId,jdbcType=INTEGER},
       </if>
       <if test="record.articleBody != null">
         article_body = #{record.articleBody,jdbcType=LONGVARCHAR},
@@ -252,14 +252,14 @@
   <update id="updateByExampleWithBLOBs" parameterType="map">
     update article
     set article_id = #{record.articleId,jdbcType=BIGINT},
+      classification_id = #{record.classificationId,jdbcType=INTEGER},
       article_title = #{record.articleTitle,jdbcType=VARCHAR},
       article_state = #{record.articleState,jdbcType=VARCHAR},
+      article_image = #{record.articleImage,jdbcType=VARCHAR},
+      article_reading = #{record.articleReading,jdbcType=BIGINT},
+      article_tag = #{record.articleTag,jdbcType=VARCHAR},
       article_ctime = #{record.articleCtime,jdbcType=TIMESTAMP},
       article_mtime = #{record.articleMtime,jdbcType=TIMESTAMP},
-      article_reading = #{record.articleReading,jdbcType=BIGINT},
-      article_image = #{record.articleImage,jdbcType=VARCHAR},
-      article_tag = #{record.articleTag,jdbcType=VARCHAR},
-      classification_id = #{record.classificationId,jdbcType=INTEGER},
       article_body = #{record.articleBody,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -268,14 +268,14 @@
   <update id="updateByExample" parameterType="map">
     update article
     set article_id = #{record.articleId,jdbcType=BIGINT},
+      classification_id = #{record.classificationId,jdbcType=INTEGER},
       article_title = #{record.articleTitle,jdbcType=VARCHAR},
       article_state = #{record.articleState,jdbcType=VARCHAR},
-      article_ctime = #{record.articleCtime,jdbcType=TIMESTAMP},
-      article_mtime = #{record.articleMtime,jdbcType=TIMESTAMP},
-      article_reading = #{record.articleReading,jdbcType=BIGINT},
       article_image = #{record.articleImage,jdbcType=VARCHAR},
+      article_reading = #{record.articleReading,jdbcType=BIGINT},
       article_tag = #{record.articleTag,jdbcType=VARCHAR},
-      classification_id = #{record.classificationId,jdbcType=INTEGER}
+      article_ctime = #{record.articleCtime,jdbcType=TIMESTAMP},
+      article_mtime = #{record.articleMtime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -283,29 +283,29 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.xie.entity.ArticleEntity">
     update article
     <set>
+      <if test="classificationId != null">
+        classification_id = #{classificationId,jdbcType=INTEGER},
+      </if>
       <if test="articleTitle != null">
         article_title = #{articleTitle,jdbcType=VARCHAR},
       </if>
       <if test="articleState != null">
         article_state = #{articleState,jdbcType=VARCHAR},
       </if>
+      <if test="articleImage != null">
+        article_image = #{articleImage,jdbcType=VARCHAR},
+      </if>
+      <if test="articleReading != null">
+        article_reading = #{articleReading,jdbcType=BIGINT},
+      </if>
+      <if test="articleTag != null">
+        article_tag = #{articleTag,jdbcType=VARCHAR},
+      </if>
       <if test="articleCtime != null">
         article_ctime = #{articleCtime,jdbcType=TIMESTAMP},
       </if>
       <if test="articleMtime != null">
         article_mtime = #{articleMtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="articleReading != null">
-        article_reading = #{articleReading,jdbcType=BIGINT},
-      </if>
-      <if test="articleImage != null">
-        article_image = #{articleImage,jdbcType=VARCHAR},
-      </if>
-      <if test="articleTag != null">
-        article_tag = #{articleTag,jdbcType=VARCHAR},
-      </if>
-      <if test="classificationId != null">
-        classification_id = #{classificationId,jdbcType=INTEGER},
       </if>
       <if test="articleBody != null">
         article_body = #{articleBody,jdbcType=LONGVARCHAR},
@@ -315,27 +315,27 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xie.entity.ArticleEntity">
     update article
-    set article_title = #{articleTitle,jdbcType=VARCHAR},
+    set classification_id = #{classificationId,jdbcType=INTEGER},
+      article_title = #{articleTitle,jdbcType=VARCHAR},
       article_state = #{articleState,jdbcType=VARCHAR},
+      article_image = #{articleImage,jdbcType=VARCHAR},
+      article_reading = #{articleReading,jdbcType=BIGINT},
+      article_tag = #{articleTag,jdbcType=VARCHAR},
       article_ctime = #{articleCtime,jdbcType=TIMESTAMP},
       article_mtime = #{articleMtime,jdbcType=TIMESTAMP},
-      article_reading = #{articleReading,jdbcType=BIGINT},
-      article_image = #{articleImage,jdbcType=VARCHAR},
-      article_tag = #{articleTag,jdbcType=VARCHAR},
-      classification_id = #{classificationId,jdbcType=INTEGER},
       article_body = #{articleBody,jdbcType=LONGVARCHAR}
     where article_id = #{articleId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xie.entity.ArticleEntity">
     update article
-    set article_title = #{articleTitle,jdbcType=VARCHAR},
+    set classification_id = #{classificationId,jdbcType=INTEGER},
+      article_title = #{articleTitle,jdbcType=VARCHAR},
       article_state = #{articleState,jdbcType=VARCHAR},
-      article_ctime = #{articleCtime,jdbcType=TIMESTAMP},
-      article_mtime = #{articleMtime,jdbcType=TIMESTAMP},
-      article_reading = #{articleReading,jdbcType=BIGINT},
       article_image = #{articleImage,jdbcType=VARCHAR},
+      article_reading = #{articleReading,jdbcType=BIGINT},
       article_tag = #{articleTag,jdbcType=VARCHAR},
-      classification_id = #{classificationId,jdbcType=INTEGER}
+      article_ctime = #{articleCtime,jdbcType=TIMESTAMP},
+      article_mtime = #{articleMtime,jdbcType=TIMESTAMP}
     where article_id = #{articleId,jdbcType=BIGINT}
   </update>
 </mapper>

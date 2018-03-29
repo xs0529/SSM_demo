@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xie.dao.AxisEntityMapper">
+  <resultMap id="BaseResultMap" type="com.xie.entity.AxisEntity">
+    <id column="time_axis_id" jdbcType="INTEGER" property="timeAxisId" />
+    <result column="time_axis_title" jdbcType="VARCHAR" property="timeAxisTitle" />
+    <result column="time_axis_body" jdbcType="VARCHAR" property="timeAxisBody" />
+    <result column="time_axis_ctime" jdbcType="TIMESTAMP" property="timeAxisCtime" />
+    <result column="time_axis_mtime" jdbcType="TIMESTAMP" property="timeAxisMtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    time_axis_id, time_axis_title, time_axis_body, time_axis_ctime, time_axis_mtime
+  </sql>
+  <select id="selectByExample" parameterType="com.xie.entity.AxisEntityExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from time_axis
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from time_axis
+    where time_axis_id = #{timeAxisId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from time_axis
+    where time_axis_id = #{timeAxisId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xie.entity.AxisEntityExample">
+    delete from time_axis
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xie.entity.AxisEntity">
+    insert into time_axis (time_axis_id, time_axis_title, time_axis_body, 
+      time_axis_ctime, time_axis_mtime)
+    values (#{timeAxisId,jdbcType=INTEGER}, #{timeAxisTitle,jdbcType=VARCHAR}, #{timeAxisBody,jdbcType=VARCHAR}, 
+      #{timeAxisCtime,jdbcType=TIMESTAMP}, #{timeAxisMtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xie.entity.AxisEntity">
+    insert into time_axis
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="timeAxisId != null">
+        time_axis_id,
+      </if>
+      <if test="timeAxisTitle != null">
+        time_axis_title,
+      </if>
+      <if test="timeAxisBody != null">
+        time_axis_body,
+      </if>
+      <if test="timeAxisCtime != null">
+        time_axis_ctime,
+      </if>
+      <if test="timeAxisMtime != null">
+        time_axis_mtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="timeAxisId != null">
+        #{timeAxisId,jdbcType=INTEGER},
+      </if>
+      <if test="timeAxisTitle != null">
+        #{timeAxisTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="timeAxisBody != null">
+        #{timeAxisBody,jdbcType=VARCHAR},
+      </if>
+      <if test="timeAxisCtime != null">
+        #{timeAxisCtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeAxisMtime != null">
+        #{timeAxisMtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xie.entity.AxisEntityExample" resultType="java.lang.Long">
+    select count(*) from time_axis
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update time_axis
+    <set>
+      <if test="record.timeAxisId != null">
+        time_axis_id = #{record.timeAxisId,jdbcType=INTEGER},
+      </if>
+      <if test="record.timeAxisTitle != null">
+        time_axis_title = #{record.timeAxisTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timeAxisBody != null">
+        time_axis_body = #{record.timeAxisBody,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timeAxisCtime != null">
+        time_axis_ctime = #{record.timeAxisCtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.timeAxisMtime != null">
+        time_axis_mtime = #{record.timeAxisMtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update time_axis
+    set time_axis_id = #{record.timeAxisId,jdbcType=INTEGER},
+      time_axis_title = #{record.timeAxisTitle,jdbcType=VARCHAR},
+      time_axis_body = #{record.timeAxisBody,jdbcType=VARCHAR},
+      time_axis_ctime = #{record.timeAxisCtime,jdbcType=TIMESTAMP},
+      time_axis_mtime = #{record.timeAxisMtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xie.entity.AxisEntity">
+    update time_axis
+    <set>
+      <if test="timeAxisTitle != null">
+        time_axis_title = #{timeAxisTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="timeAxisBody != null">
+        time_axis_body = #{timeAxisBody,jdbcType=VARCHAR},
+      </if>
+      <if test="timeAxisCtime != null">
+        time_axis_ctime = #{timeAxisCtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeAxisMtime != null">
+        time_axis_mtime = #{timeAxisMtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where time_axis_id = #{timeAxisId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xie.entity.AxisEntity">
+    update time_axis
+    set time_axis_title = #{timeAxisTitle,jdbcType=VARCHAR},
+      time_axis_body = #{timeAxisBody,jdbcType=VARCHAR},
+      time_axis_ctime = #{timeAxisCtime,jdbcType=TIMESTAMP},
+      time_axis_mtime = #{timeAxisMtime,jdbcType=TIMESTAMP}
+    where time_axis_id = #{timeAxisId,jdbcType=INTEGER}
+  </update>
+</mapper>

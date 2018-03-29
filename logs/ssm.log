@@ -1,0 +1,221 @@
+[INFO] [2018-03-27 16:49:09][org.springframework.test.context.support.DefaultTestContextBootstrapper]Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2018-03-27 16:49:09][org.springframework.test.context.support.DefaultTestContextBootstrapper]Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@28d25987, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4501b7af, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@523884b2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5b275dab, org.springframework.test.context.transaction.TransactionalTestExecutionListener@61832929, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@29774679]
+  [INFO] [2018-03-27 16:49:09][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2018-03-27 16:49:10][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@3c0f93f1: startup date [Tue Mar 27 16:49:10 CST 2018]; root of context hierarchy
+  [ERROR] [2018-03-27 16:49:10][com.alibaba.druid.pool.DruidAbstractDataSource]maxIdle is deprecated
+  [INFO] [2018-03-27 16:49:10][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[ERROR] [2018-03-27 16:49:11][com.alibaba.druid.pool.DruidDataSource]create connection error, url: http://maven.apache.org, errorCode 0, state null
+  java.sql.SQLException: connect error, url http://maven.apache.org, driverClass com.mysql.jdbc.Driver
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1533)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2109)
+[WARN] [2018-03-27 16:49:12][com.alibaba.druid.pool.DruidDataSource]not full timeout retry : 1
+  [INFO] [2018-03-27 16:49:12][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@3c0f93f1: startup date [Tue Mar 27 16:49:10 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-27 16:49:12][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} closed
+  [INFO] [2018-03-27 16:54:52][org.springframework.test.context.support.DefaultTestContextBootstrapper]Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2018-03-27 16:54:52][org.springframework.test.context.support.DefaultTestContextBootstrapper]Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@28d25987, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4501b7af, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@523884b2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5b275dab, org.springframework.test.context.transaction.TransactionalTestExecutionListener@61832929, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@29774679]
+  [INFO] [2018-03-27 16:54:52][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2018-03-27 16:54:52][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@3c0f93f1: startup date [Tue Mar 27 16:54:52 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-27 16:54:59][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [INFO] [2018-03-27 16:55:00][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@3c0f93f1: startup date [Tue Mar 27 16:54:52 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-27 16:55:00][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} closed
+  [INFO] [2018-03-27 16:57:51][org.springframework.test.context.support.DefaultTestContextBootstrapper]Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2018-03-27 16:57:51][org.springframework.test.context.support.DefaultTestContextBootstrapper]Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@28d25987, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4501b7af, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@523884b2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5b275dab, org.springframework.test.context.transaction.TransactionalTestExecutionListener@61832929, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@29774679]
+  [INFO] [2018-03-27 16:57:51][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2018-03-27 16:57:52][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@3c0f93f1: startup date [Tue Mar 27 16:57:52 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-27 16:57:59][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [INFO] [2018-03-27 16:57:59][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@3c0f93f1: startup date [Tue Mar 27 16:57:52 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-27 16:57:59][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} closed
+  [INFO] [2018-03-27 17:02:24][org.springframework.test.context.support.DefaultTestContextBootstrapper]Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2018-03-27 17:02:24][org.springframework.test.context.support.DefaultTestContextBootstrapper]Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@28d25987, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4501b7af, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@523884b2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5b275dab, org.springframework.test.context.transaction.TransactionalTestExecutionListener@61832929, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@29774679]
+  [INFO] [2018-03-27 17:02:24][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2018-03-27 17:02:25][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@3c0f93f1: startup date [Tue Mar 27 17:02:25 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-27 17:02:31][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [INFO] [2018-03-27 17:02:32][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@3c0f93f1: startup date [Tue Mar 27 17:02:25 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-27 17:02:32][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} closed
+  [INFO] [2018-03-29 15:43:40][org.springframework.test.context.support.DefaultTestContextBootstrapper]Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2018-03-29 15:43:40][org.springframework.test.context.support.DefaultTestContextBootstrapper]Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@61832929, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@29774679, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3ffc5af1, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5e5792a0, org.springframework.test.context.transaction.TransactionalTestExecutionListener@26653222, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3532ec19]
+  [INFO] [2018-03-29 15:43:41][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2018-03-29 15:43:41][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@71318ec4: startup date [Thu Mar 29 15:43:41 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 15:43:44][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [INFO] [2018-03-29 15:43:46][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@71318ec4: startup date [Thu Mar 29 15:43:41 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 15:43:46][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} closed
+  [INFO] [2018-03-29 15:46:06][org.springframework.test.context.support.DefaultTestContextBootstrapper]Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2018-03-29 15:46:06][org.springframework.test.context.support.DefaultTestContextBootstrapper]Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@29774679, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3ffc5af1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5e5792a0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@26653222, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3532ec19, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@68c4039c]
+  [INFO] [2018-03-29 15:46:06][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2018-03-29 15:46:06][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@21213b92: startup date [Thu Mar 29 15:46:06 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 15:46:09][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [INFO] [2018-03-29 15:46:18][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@21213b92: startup date [Thu Mar 29 15:46:06 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 15:46:18][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} closed
+  [INFO] [2018-03-29 15:48:04][org.springframework.test.context.support.DefaultTestContextBootstrapper]Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2018-03-29 15:48:04][org.springframework.test.context.support.DefaultTestContextBootstrapper]Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@29774679, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3ffc5af1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5e5792a0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@26653222, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3532ec19, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@68c4039c]
+  [INFO] [2018-03-29 15:48:04][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2018-03-29 15:48:05][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@21213b92: startup date [Thu Mar 29 15:48:05 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 15:48:08][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [INFO] [2018-03-29 15:48:17][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@21213b92: startup date [Thu Mar 29 15:48:05 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 15:48:17][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} closed
+  [INFO] [2018-03-29 16:18:13][org.springframework.test.context.web.WebTestContextBootstrapper]Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2018-03-29 16:18:13][org.springframework.test.context.web.WebTestContextBootstrapper]Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7cd62f43, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6d4b1c02, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6093dd95, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5622fdf, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4883b407, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7d9d1a19]
+  [INFO] [2018-03-29 16:18:13][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2018-03-29 16:18:13][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [INFO] [2018-03-29 16:18:14][org.springframework.web.context.support.GenericWebApplicationContext]Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6b09bb57: startup date [Thu Mar 29 16:18:14 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 16:18:16][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [INFO] [2018-03-29 16:18:17][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+  [INFO] [2018-03-29 16:18:17][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/blog/article],methods=[GET]}" onto public com.xie.util.ResultSet com.xie.controller.ArticleController.allArticle(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.String)
+  [INFO] [2018-03-29 16:18:18][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@6b09bb57: startup date [Thu Mar 29 16:18:14 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 16:18:18][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@6b09bb57: startup date [Thu Mar 29 16:18:14 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 16:18:18][org.springframework.mock.web.MockServletContext]Initializing Spring FrameworkServlet ''
+  [INFO] [2018-03-29 16:18:18][org.springframework.test.web.servlet.TestDispatcherServlet]FrameworkServlet '': initialization started
+  [INFO] [2018-03-29 16:18:18][org.springframework.test.web.servlet.TestDispatcherServlet]FrameworkServlet '': initialization completed in 19 ms
+  [INFO] [2018-03-29 16:18:19][org.springframework.web.context.support.GenericWebApplicationContext]Closing org.springframework.web.context.support.GenericWebApplicationContext@6b09bb57: startup date [Thu Mar 29 16:18:14 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 16:18:19][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} closed
+  [INFO] [2018-03-29 16:20:21][org.springframework.test.context.web.WebTestContextBootstrapper]Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2018-03-29 16:20:21][org.springframework.test.context.web.WebTestContextBootstrapper]Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7cd62f43, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6d4b1c02, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6093dd95, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5622fdf, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4883b407, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7d9d1a19]
+  [INFO] [2018-03-29 16:20:21][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2018-03-29 16:20:21][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [INFO] [2018-03-29 16:20:21][org.springframework.web.context.support.GenericWebApplicationContext]Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6b09bb57: startup date [Thu Mar 29 16:20:21 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 16:20:24][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [INFO] [2018-03-29 16:20:25][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+  [INFO] [2018-03-29 16:20:25][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/blog/article],methods=[GET]}" onto public com.xie.util.ResultSet com.xie.controller.ArticleController.allArticle(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.String)
+  [INFO] [2018-03-29 16:20:25][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@6b09bb57: startup date [Thu Mar 29 16:20:21 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 16:20:25][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@6b09bb57: startup date [Thu Mar 29 16:20:21 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 16:20:25][org.springframework.mock.web.MockServletContext]Initializing Spring FrameworkServlet ''
+  [INFO] [2018-03-29 16:20:25][org.springframework.test.web.servlet.TestDispatcherServlet]FrameworkServlet '': initialization started
+  [INFO] [2018-03-29 16:20:25][org.springframework.test.web.servlet.TestDispatcherServlet]FrameworkServlet '': initialization completed in 13 ms
+  [INFO] [2018-03-29 16:20:26][org.springframework.web.context.support.GenericWebApplicationContext]Closing org.springframework.web.context.support.GenericWebApplicationContext@6b09bb57: startup date [Thu Mar 29 16:20:21 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 16:20:26][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} closed
+  [INFO] [2018-03-29 16:23:16][org.springframework.test.context.web.WebTestContextBootstrapper]Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2018-03-29 16:23:16][org.springframework.test.context.web.WebTestContextBootstrapper]Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7cd62f43, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6d4b1c02, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6093dd95, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5622fdf, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4883b407, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7d9d1a19]
+  [INFO] [2018-03-29 16:23:16][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2018-03-29 16:23:17][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [INFO] [2018-03-29 16:23:17][org.springframework.web.context.support.GenericWebApplicationContext]Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6b09bb57: startup date [Thu Mar 29 16:23:17 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 16:23:20][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [INFO] [2018-03-29 16:23:20][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+  [INFO] [2018-03-29 16:23:20][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/blog/article],methods=[GET]}" onto public com.xie.util.ResultSet com.xie.controller.ArticleController.allArticle(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.String)
+  [INFO] [2018-03-29 16:23:21][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@6b09bb57: startup date [Thu Mar 29 16:23:17 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 16:23:21][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@6b09bb57: startup date [Thu Mar 29 16:23:17 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 16:23:21][org.springframework.mock.web.MockServletContext]Initializing Spring FrameworkServlet ''
+  [INFO] [2018-03-29 16:23:21][org.springframework.test.web.servlet.TestDispatcherServlet]FrameworkServlet '': initialization started
+  [INFO] [2018-03-29 16:23:21][org.springframework.test.web.servlet.TestDispatcherServlet]FrameworkServlet '': initialization completed in 22 ms
+  [INFO] [2018-03-29 16:23:22][org.springframework.web.context.support.GenericWebApplicationContext]Closing org.springframework.web.context.support.GenericWebApplicationContext@6b09bb57: startup date [Thu Mar 29 16:23:17 CST 2018]; root of context hierarchy
+  [INFO] [2018-03-29 16:23:22][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} closed
+  
