@@ -2,6 +2,7 @@ package com.xie.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
+import com.xie.entity.ArticleEntity;
 import com.xie.service.ArticleService;
 import com.xie.util.ResultSet;
 import org.apache.ibatis.jdbc.Null;
@@ -20,6 +21,17 @@ import org.springframework.web.bind.annotation.*;
 public class ArticleController {
     @Autowired
     ArticleService articleService;
+    /*
+     * @author 谢霜
+     * @Description 分页查新博文
+     * @params  * @param pageNumber 页码
+     * @param count 记录数
+     * @param classification 是否按照分类查询
+     * @param reading 阅读量
+     * @param tag 标签
+     * @return com.xie.util.ResultSet
+     * @date 2018/3/30 13:54
+     */
     @GetMapping
     public ResultSet allArticle(
             //页码
@@ -35,5 +47,30 @@ public class ArticleController {
         PageInfo pageInfo = articleService.articleList(pageNumber,count,classification,reading,tag);
         return ResultSet.success().add("pageInfo",pageInfo);
     }
-
+    /*
+     * @author 谢霜
+     * @Description 查询博文
+     * @params  * @param articleId
+     * @return com.xie.util.ResultSet
+     * @date 2018/3/30 14:06
+     */
+    @GetMapping("/{id}")
+    public ResultSet selectArticleById(@PathVariable("id")Long articleId){
+        return ResultSet.success().add("article",articleService.selectById(articleId));
+    }
+    /*
+     * @author 谢霜
+     * @Description 新增博文
+     * @params  * @param articleEntity
+     * @return com.xie.util.ResultSet
+     * @date 2018/3/30 14:06
+     */
+    @PostMapping
+    public ResultSet insertArticle(ArticleEntity articleEntity){
+        if (articleService.addArticle(articleEntity)>0){
+            return ResultSet.success();
+        } else {
+            return ResultSet.fail();
+        }
+    }
 }
