@@ -56,8 +56,8 @@ public class ArticleTest {
         mockHttpServletRequestBuilder.param( "pageNumber", "2" ).param( "count", "15" );
         try {
             MvcResult mvcResult = this.mockMvc.perform(get("/blog/article")//url
-                    .param("pageNumber","2")//参数
-                    .param("count","15")
+                    .param("pageNumber","1")//参数
+                    .param("count","15").param("reading","1")
                     ).andExpect(status().isOk())//andExpect为结果断言，isOk代表的是返回正常也就是http的200
                     .andDo(print())//andDo为执行后操作，本例的print为打印出结果
                     .andReturn();//return返回结果，可以对结果进一步操作
