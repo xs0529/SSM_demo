@@ -225,6 +225,76 @@ public class ArticleEntityExample {
             return (Criteria) this;
         }
 
+        public Criteria andClassificationNameIsNull() {
+            addCriterion("classification_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameIsNotNull() {
+            addCriterion("classification_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameEqualTo(String value) {
+            addCriterion("classification_name =", value, "classificationName");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameNotEqualTo(String value) {
+            addCriterion("classification_name <>", value, "classificationName");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameGreaterThan(String value) {
+            addCriterion("classification_name >", value, "classificationName");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameGreaterThanOrEqualTo(String value) {
+            addCriterion("classification_name >=", value, "classificationName");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameLessThan(String value) {
+            addCriterion("classification_name <", value, "classificationName");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameLessThanOrEqualTo(String value) {
+            addCriterion("classification_name <=", value, "classificationName");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameLike(String value) {
+            addCriterion("classification_name like", value, "classificationName");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameNotLike(String value) {
+            addCriterion("classification_name not like", value, "classificationName");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameIn(List<String> values) {
+            addCriterion("classification_name in", values, "classificationName");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameNotIn(List<String> values) {
+            addCriterion("classification_name not in", values, "classificationName");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameBetween(String value1, String value2) {
+            addCriterion("classification_name between", value1, value2, "classificationName");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassificationNameNotBetween(String value1, String value2) {
+            addCriterion("classification_name not between", value1, value2, "classificationName");
+            return (Criteria) this;
+        }
+
         public Criteria andArticleTitleIsNull() {
             addCriterion("article_title is null");
             return (Criteria) this;

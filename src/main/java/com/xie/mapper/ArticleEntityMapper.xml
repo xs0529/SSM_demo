@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.xie.entity.ArticleEntity">
     <id column="article_id" jdbcType="BIGINT" property="articleId" />
     <result column="classification_id" jdbcType="INTEGER" property="classificationId" />
+    <result column="classification_name" jdbcType="VARCHAR" property="classificationName" />
     <result column="article_title" jdbcType="VARCHAR" property="articleTitle" />
     <result column="article_state" jdbcType="VARCHAR" property="articleState" />
     <result column="article_image" jdbcType="VARCHAR" property="articleImage" />
@@ -74,8 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    article_id, classification_id, article_title, article_state, article_image, article_reading, 
-    article_tag, article_ctime, article_mtime
+    article_id, classification_id, classification_name, article_title, article_state, 
+    article_image, article_reading, article_tag, article_ctime, article_mtime
   </sql>
   <sql id="Blob_Column_List">
     article_body
@@ -129,14 +130,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.xie.entity.ArticleEntity">
-    insert into article (article_id, classification_id, article_title, 
-      article_state, article_image, article_reading, 
-      article_tag, article_ctime, article_mtime, 
-      article_body)
-    values (#{articleId,jdbcType=BIGINT}, #{classificationId,jdbcType=INTEGER}, #{articleTitle,jdbcType=VARCHAR}, 
-      #{articleState,jdbcType=VARCHAR}, #{articleImage,jdbcType=VARCHAR}, #{articleReading,jdbcType=BIGINT}, 
-      #{articleTag,jdbcType=VARCHAR}, #{articleCtime,jdbcType=TIMESTAMP}, #{articleMtime,jdbcType=TIMESTAMP}, 
-      #{articleBody,jdbcType=LONGVARCHAR})
+    insert into article (article_id, classification_id, classification_name, 
+      article_title, article_state, article_image, 
+      article_reading, article_tag, article_ctime, 
+      article_mtime, article_body)
+    values (#{articleId,jdbcType=BIGINT}, #{classificationId,jdbcType=INTEGER}, #{classificationName,jdbcType=VARCHAR}, 
+      #{articleTitle,jdbcType=VARCHAR}, #{articleState,jdbcType=VARCHAR}, #{articleImage,jdbcType=VARCHAR}, 
+      #{articleReading,jdbcType=BIGINT}, #{articleTag,jdbcType=VARCHAR}, #{articleCtime,jdbcType=TIMESTAMP}, 
+      #{articleMtime,jdbcType=TIMESTAMP}, #{articleBody,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xie.entity.ArticleEntity">
     insert into article
@@ -146,6 +147,9 @@
       </if>
       <if test="classificationId != null">
         classification_id,
+      </if>
+      <if test="classificationName != null">
+        classification_name,
       </if>
       <if test="articleTitle != null">
         article_title,
@@ -178,6 +182,9 @@
       </if>
       <if test="classificationId != null">
         #{classificationId,jdbcType=INTEGER},
+      </if>
+      <if test="classificationName != null">
+        #{classificationName,jdbcType=VARCHAR},
       </if>
       <if test="articleTitle != null">
         #{articleTitle,jdbcType=VARCHAR},
@@ -220,6 +227,9 @@
       <if test="record.classificationId != null">
         classification_id = #{record.classificationId,jdbcType=INTEGER},
       </if>
+      <if test="record.classificationName != null">
+        classification_name = #{record.classificationName,jdbcType=VARCHAR},
+      </if>
       <if test="record.articleTitle != null">
         article_title = #{record.articleTitle,jdbcType=VARCHAR},
       </if>
@@ -253,6 +263,7 @@
     update article
     set article_id = #{record.articleId,jdbcType=BIGINT},
       classification_id = #{record.classificationId,jdbcType=INTEGER},
+      classification_name = #{record.classificationName,jdbcType=VARCHAR},
       article_title = #{record.articleTitle,jdbcType=VARCHAR},
       article_state = #{record.articleState,jdbcType=VARCHAR},
       article_image = #{record.articleImage,jdbcType=VARCHAR},
@@ -269,6 +280,7 @@
     update article
     set article_id = #{record.articleId,jdbcType=BIGINT},
       classification_id = #{record.classificationId,jdbcType=INTEGER},
+      classification_name = #{record.classificationName,jdbcType=VARCHAR},
       article_title = #{record.articleTitle,jdbcType=VARCHAR},
       article_state = #{record.articleState,jdbcType=VARCHAR},
       article_image = #{record.articleImage,jdbcType=VARCHAR},
@@ -285,6 +297,9 @@
     <set>
       <if test="classificationId != null">
         classification_id = #{classificationId,jdbcType=INTEGER},
+      </if>
+      <if test="classificationName != null">
+        classification_name = #{classificationName,jdbcType=VARCHAR},
       </if>
       <if test="articleTitle != null">
         article_title = #{articleTitle,jdbcType=VARCHAR},
@@ -316,6 +331,7 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xie.entity.ArticleEntity">
     update article
     set classification_id = #{classificationId,jdbcType=INTEGER},
+      classification_name = #{classificationName,jdbcType=VARCHAR},
       article_title = #{articleTitle,jdbcType=VARCHAR},
       article_state = #{articleState,jdbcType=VARCHAR},
       article_image = #{articleImage,jdbcType=VARCHAR},
@@ -329,6 +345,7 @@
   <update id="updateByPrimaryKey" parameterType="com.xie.entity.ArticleEntity">
     update article
     set classification_id = #{classificationId,jdbcType=INTEGER},
+      classification_name = #{classificationName,jdbcType=VARCHAR},
       article_title = #{articleTitle,jdbcType=VARCHAR},
       article_state = #{articleState,jdbcType=VARCHAR},
       article_image = #{articleImage,jdbcType=VARCHAR},

@@ -3,8 +3,6 @@ package com.xie.service;
 import com.github.pagehelper.PageInfo;
 import com.xie.entity.ArticleEntity;
 
-import java.util.List;
-
 /**
  * @author 谢霜
  * @Description
@@ -30,8 +28,8 @@ public interface ArticleService {
    * @return com.github.pagehelper.PageInfo<com.xie.entity.ArticleEntity>
    * @date 2018/3/29 14:58
    */
-    PageInfo<ArticleEntity> articleList(Integer pageNumber,Integer count,Integer classification,
-                                        Integer reading,String tag);
+    PageInfo<ArticleEntity> articleList(Integer pageNumber, Integer count, Integer classification,
+                                        Integer reading, String tag);
     /*
      * @author 谢霜
      * @Description 新增博文
@@ -40,4 +38,13 @@ public interface ArticleService {
      * @date 2018/3/29 14:21
      */
     int addArticle(ArticleEntity articleEntity);
+    /*
+     * @author 谢霜
+     * @Description 修改博文
+     * @params  * @param id
+     * @param articleEntity
+     * @return int
+     * @date 2018/4/2 11:28
+     */
+    int updateArticle(ArticleEntity articleEntity);
 }

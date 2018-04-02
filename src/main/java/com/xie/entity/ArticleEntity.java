@@ -7,6 +7,8 @@ public class ArticleEntity {
 
     private Integer classificationId;
 
+    private String classificationName;
+
     private String articleTitle;
 
     private String articleState;
@@ -37,6 +39,14 @@ public class ArticleEntity {
 
     public void setClassificationId(Integer classificationId) {
         this.classificationId = classificationId;
+    }
+
+    public String getClassificationName() {
+        return classificationName;
+    }
+
+    public void setClassificationName(String classificationName) {
+        this.classificationName = classificationName == null ? null : classificationName.trim();
     }
 
     public String getArticleTitle() {

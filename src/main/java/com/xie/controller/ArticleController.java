@@ -1,14 +1,10 @@
 package com.xie.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
 import com.xie.entity.ArticleEntity;
 import com.xie.service.ArticleService;
 import com.xie.util.ResultSet;
-import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -68,6 +64,21 @@ public class ArticleController {
     @PostMapping
     public ResultSet insertArticle(ArticleEntity articleEntity){
         if (articleService.addArticle(articleEntity)>0){
+            return ResultSet.success();
+        } else {
+            return ResultSet.fail();
+        }
+    }
+    /*
+     * @author 谢霜
+     * @    Description 修改博文
+     * @params  * @param articleEntity
+     * @return com.xie.util.ResultSet
+     * @date 2018/4/2 11:31
+     */
+    @PutMapping
+    public ResultSet updateArticle(ArticleEntity articleEntity){
+        if (articleService.updateArticle(articleEntity)>0){
             return ResultSet.success();
         } else {
             return ResultSet.fail();

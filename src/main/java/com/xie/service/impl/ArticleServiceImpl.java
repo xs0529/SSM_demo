@@ -50,4 +50,8 @@ public class ArticleServiceImpl implements ArticleService {
     public int addArticle(ArticleEntity articleEntity) {
         return articleEntityMapper.insertSelective(articleEntity);
     }
+
+    public int updateArticle(ArticleEntity articleEntity) {
+        return articleEntityMapper.updateByPrimaryKey(articleEntity);
+    }
 }
