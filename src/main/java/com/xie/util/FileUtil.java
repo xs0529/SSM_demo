@@ -188,7 +188,7 @@ public class FileUtil {
     public static List<String> traversePackageGetAllFileName(String packageName) {
         List<String> fileNames = null;
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        packageName = StringUtil.trim(packageName);
+        packageName = StringUtil1.trim(packageName);
         if (packageName.startsWith("/")) {
             packageName = packageName.substring(1);
         }

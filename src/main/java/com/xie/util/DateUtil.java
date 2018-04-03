@@ -121,7 +121,7 @@ public class DateUtil {
      */
     public static Date convertToDate(String date) throws ParseException {
         SimpleDateFormat simple = null;
-        date = StringUtil.trim(date);
+        date = StringUtil1.trim(date);
         switch (date.length()) {
             case 19:// 日期+时间
                 simple = getDateFormat(FORMAT_YMDHMS);
@@ -148,7 +148,7 @@ public class DateUtil {
      */
     public static java.sql.Date convertToSqlDate(String date) {
         SimpleDateFormat simple = null;
-        date = StringUtil.trim(date);
+        date = StringUtil1.trim(date);
         switch (date.length()) {
             case 19:// 日期+时间
                 simple = getDateFormat(FORMAT_YMDHMS);

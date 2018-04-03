@@ -1,7 +1,9 @@
 package com.xie.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.xie.entity.ClassEntity;
 import com.xie.service.ClassService;
+import com.xie.util.LayuiResult;
 import com.xie.util.ResultSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +20,11 @@ public class ClassController {
     ClassService classService;
 
     @GetMapping
-    public ResultSet classList(){
-        return ResultSet.success().add("classList",classService.ClassList());
+    public String classList(){
+        LayuiResult layuiResult = new LayuiResult();
+        layuiResult.setSuccess();
+        layuiResult.add("data",classService.ClassList());
+        return JSON.toJSON(layuiResult.getSet()).toString();
     }
 
     @GetMapping("/{id}")
@@ -38,6 +43,14 @@ public class ClassController {
     @PostMapping
     public ResultSet addClass(ClassEntity classEntity){
         if (classService.addClass(classEntity)>0){
+            return ResultSet.success();
+        }
+        return ResultSet.fail();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResultSet deleteClass(@PathVariable("id")Integer id){
+        if (classService.deleteClass(id)>0){
             return ResultSet.success();
         }
         return ResultSet.fail();

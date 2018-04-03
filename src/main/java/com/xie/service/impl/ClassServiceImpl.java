@@ -9,6 +9,7 @@ import com.xie.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,6 +26,8 @@ public class ClassServiceImpl implements ClassService {
     ArticleEntityMapper articleEntityMapper;
 
     public int addClass(ClassEntity classEntity) {
+        classEntity.setClassificationCtime(new Date());
+        classEntity.setClassificationMtime(new Date());
         return classEntityMapper.insertSelective(classEntity);
     }
 
@@ -39,6 +42,7 @@ public class ClassServiceImpl implements ClassService {
             articleEntity.setClassificationName(classEntity.getClassificationName());
             articleEntityMapper.updateByPrimaryKey(articleEntity);
         }
+        classEntity.setClassificationMtime(new Date());
         return classEntityMapper.updateByPrimaryKeySelective(classEntity);
     }
 
@@ -48,7 +52,13 @@ public class ClassServiceImpl implements ClassService {
         /*
         * 删除对应分类的博文
         */
-        if (articleEntityMapper.deleteByExample(articleEntityExample)>0){
+        if (articleEntityMapper.selectByExample(articleEntityExample).size()>0){
+            if (articleEntityMapper.deleteByExample(articleEntityExample)>0){
+                if (classEntityMapper.deleteByPrimaryKey(id)>0){
+                    return 1;
+                }
+            }
+        } else{
             if (classEntityMapper.deleteByPrimaryKey(id)>0){
                 return 1;
             }

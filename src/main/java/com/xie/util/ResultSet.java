@@ -20,7 +20,7 @@ public class ResultSet {
     /*
     * 要返回的数据
     */
-    private Map<String,Object> date = new HashMap<String, Object>();
+    private Map<String,Object> data = new HashMap<String, Object>();
     /*
      * @author 谢霜
      * @Description 直接返回一个成功的结果集
@@ -56,7 +56,7 @@ public class ResultSet {
      * @date 2018/3/29 14:10
      */
     public ResultSet add(String key ,Object value){
-        this.getDate().put(key,value);
+        this.getData().put(key,value);
         return this;
     }
     /*
@@ -66,9 +66,10 @@ public class ResultSet {
      * @return void
      * @date 2018/3/29 14:11
      */
-    public void setSuccess(){
+    public ResultSet setSuccess(){
         this.setCode(200);
         this.setMessage("处理成功");
+        return this;
     }
     /*
      * @author 谢霜
@@ -77,10 +78,12 @@ public class ResultSet {
      * @return void
      * @date 2018/3/29 14:12
      */
-    public void setFail(){
+    public ResultSet setFail(){
         this.setCode(500);
         this.setMessage("处理失败");
+        return this;
     }
+
     public int getCode() {
         return code;
     }
@@ -97,11 +100,11 @@ public class ResultSet {
         this.message = message;
     }
 
-    public Map<String, Object> getDate() {
-        return date;
+    public Map<String, Object> getData() {
+        return data;
     }
 
-    public void setDate(Map<String, Object> date) {
-        this.date = date;
+    public void setData(Map<String, Object> data) {
+        this.data = data;
     }
 }
