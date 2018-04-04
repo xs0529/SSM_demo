@@ -2,6 +2,7 @@ package com.xie.service.impl;
 
 import com.xie.dao.TagEntityMapper;
 import com.xie.entity.TagEntity;
+import com.xie.entity.TagEntityExample;
 import com.xie.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,14 @@ public class TagServiceImpl implements TagService{
 
     public List<TagEntity> tagList() {
         return tagEntityMapper.selectByExample(null);
+    }
+
+    public int selectTagByName(String tag) {
+        TagEntityExample tagEntityExample =new TagEntityExample();
+        tagEntityExample.createCriteria().andTagNameEqualTo(tag);
+        if(tagEntityMapper.selectByExample(tagEntityExample).size()>0){
+            return 1;
+        }
+        return 0;
     }
 }

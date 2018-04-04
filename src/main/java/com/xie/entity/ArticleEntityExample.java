@@ -754,6 +754,76 @@ public class ArticleEntityExample {
             addCriterion("article_mtime not between", value1, value2, "articleMtime");
             return (Criteria) this;
         }
+
+        public Criteria andArticleTextIsNull() {
+            addCriterion("article_text is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextIsNotNull() {
+            addCriterion("article_text is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextEqualTo(String value) {
+            addCriterion("article_text =", value, "articleText");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextNotEqualTo(String value) {
+            addCriterion("article_text <>", value, "articleText");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextGreaterThan(String value) {
+            addCriterion("article_text >", value, "articleText");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextGreaterThanOrEqualTo(String value) {
+            addCriterion("article_text >=", value, "articleText");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextLessThan(String value) {
+            addCriterion("article_text <", value, "articleText");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextLessThanOrEqualTo(String value) {
+            addCriterion("article_text <=", value, "articleText");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextLike(String value) {
+            addCriterion("article_text like", value, "articleText");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextNotLike(String value) {
+            addCriterion("article_text not like", value, "articleText");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextIn(List<String> values) {
+            addCriterion("article_text in", values, "articleText");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextNotIn(List<String> values) {
+            addCriterion("article_text not in", values, "articleText");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextBetween(String value1, String value2) {
+            addCriterion("article_text between", value1, value2, "articleText");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleTextNotBetween(String value1, String value2) {
+            addCriterion("article_text not between", value1, value2, "articleText");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

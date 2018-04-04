@@ -12,6 +12,7 @@
     <result column="article_tag" jdbcType="VARCHAR" property="articleTag" />
     <result column="article_ctime" jdbcType="TIMESTAMP" property="articleCtime" />
     <result column="article_mtime" jdbcType="TIMESTAMP" property="articleMtime" />
+    <result column="article_text" jdbcType="VARCHAR" property="articleText" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xie.entity.ArticleEntity">
     <result column="article_body" jdbcType="LONGVARCHAR" property="articleBody" />
@@ -76,7 +77,7 @@
   </sql>
   <sql id="Base_Column_List">
     article_id, classification_id, classification_name, article_title, article_state, 
-    article_image, article_reading, article_tag, article_ctime, article_mtime
+    article_image, article_reading, article_tag, article_ctime, article_mtime, article_text
   </sql>
   <sql id="Blob_Column_List">
     article_body
@@ -133,11 +134,13 @@
     insert into article (article_id, classification_id, classification_name, 
       article_title, article_state, article_image, 
       article_reading, article_tag, article_ctime, 
-      article_mtime, article_body)
+      article_mtime, article_text, article_body
+      )
     values (#{articleId,jdbcType=BIGINT}, #{classificationId,jdbcType=INTEGER}, #{classificationName,jdbcType=VARCHAR}, 
       #{articleTitle,jdbcType=VARCHAR}, #{articleState,jdbcType=VARCHAR}, #{articleImage,jdbcType=VARCHAR}, 
       #{articleReading,jdbcType=BIGINT}, #{articleTag,jdbcType=VARCHAR}, #{articleCtime,jdbcType=TIMESTAMP}, 
-      #{articleMtime,jdbcType=TIMESTAMP}, #{articleBody,jdbcType=LONGVARCHAR})
+      #{articleMtime,jdbcType=TIMESTAMP}, #{articleText,jdbcType=VARCHAR}, #{articleBody,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.xie.entity.ArticleEntity">
     insert into article
@@ -171,6 +174,9 @@
       </if>
       <if test="articleMtime != null">
         article_mtime,
+      </if>
+      <if test="articleText != null">
+        article_text,
       </if>
       <if test="articleBody != null">
         article_body,
@@ -206,6 +212,9 @@
       </if>
       <if test="articleMtime != null">
         #{articleMtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleText != null">
+        #{articleText,jdbcType=VARCHAR},
       </if>
       <if test="articleBody != null">
         #{articleBody,jdbcType=LONGVARCHAR},
@@ -251,6 +260,9 @@
       <if test="record.articleMtime != null">
         article_mtime = #{record.articleMtime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.articleText != null">
+        article_text = #{record.articleText,jdbcType=VARCHAR},
+      </if>
       <if test="record.articleBody != null">
         article_body = #{record.articleBody,jdbcType=LONGVARCHAR},
       </if>
@@ -271,6 +283,7 @@
       article_tag = #{record.articleTag,jdbcType=VARCHAR},
       article_ctime = #{record.articleCtime,jdbcType=TIMESTAMP},
       article_mtime = #{record.articleMtime,jdbcType=TIMESTAMP},
+      article_text = #{record.articleText,jdbcType=VARCHAR},
       article_body = #{record.articleBody,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -287,7 +300,8 @@
       article_reading = #{record.articleReading,jdbcType=BIGINT},
       article_tag = #{record.articleTag,jdbcType=VARCHAR},
       article_ctime = #{record.articleCtime,jdbcType=TIMESTAMP},
-      article_mtime = #{record.articleMtime,jdbcType=TIMESTAMP}
+      article_mtime = #{record.articleMtime,jdbcType=TIMESTAMP},
+      article_text = #{record.articleText,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -322,6 +336,9 @@
       <if test="articleMtime != null">
         article_mtime = #{articleMtime,jdbcType=TIMESTAMP},
       </if>
+      <if test="articleText != null">
+        article_text = #{articleText,jdbcType=VARCHAR},
+      </if>
       <if test="articleBody != null">
         article_body = #{articleBody,jdbcType=LONGVARCHAR},
       </if>
@@ -339,6 +356,7 @@
       article_tag = #{articleTag,jdbcType=VARCHAR},
       article_ctime = #{articleCtime,jdbcType=TIMESTAMP},
       article_mtime = #{articleMtime,jdbcType=TIMESTAMP},
+      article_text = #{articleText,jdbcType=VARCHAR},
       article_body = #{articleBody,jdbcType=LONGVARCHAR}
     where article_id = #{articleId,jdbcType=BIGINT}
   </update>
@@ -352,7 +370,8 @@
       article_reading = #{articleReading,jdbcType=BIGINT},
       article_tag = #{articleTag,jdbcType=VARCHAR},
       article_ctime = #{articleCtime,jdbcType=TIMESTAMP},
-      article_mtime = #{articleMtime,jdbcType=TIMESTAMP}
+      article_mtime = #{articleMtime,jdbcType=TIMESTAMP},
+      article_text = #{articleText,jdbcType=VARCHAR}
     where article_id = #{articleId,jdbcType=BIGINT}
   </update>
 </mapper>

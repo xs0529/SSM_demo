@@ -3,6 +3,8 @@ package com.xie.util;
 import org.springframework.util.Assert;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 /**
@@ -599,7 +601,27 @@ public  class StringUtil {
             }
         }
     }
+    public static String delHTMLTag(String htmlStr){
+        String regEx_style="<style[^>]*?>[\\s\\S]*?<\\/style>"; //定义style的正则表达式
+        String regEx_html="<[^>]+>"; //定义HTML标签的正则表达式
 
+        Pattern p_style= Pattern.compile(regEx_style,Pattern.CASE_INSENSITIVE);
+        Matcher m_style=p_style.matcher(htmlStr);
+        htmlStr=m_style.replaceAll(""); //过滤style标签
+
+        Pattern p_html=Pattern.compile(regEx_html,Pattern.CASE_INSENSITIVE);
+        Matcher m_html=p_html.matcher(htmlStr);
+        htmlStr=m_html.replaceAll(""); //过滤html标签
+
+        htmlStr=htmlStr.replace(" ","");
+        htmlStr=htmlStr.replaceAll("\\s*|\t|\r|\n","");
+        htmlStr=htmlStr.replace("“","");
+        htmlStr=htmlStr.replace("”","");
+        htmlStr=htmlStr.replace("&nbsp;"," ");
+        htmlStr=htmlStr.replaceAll("　","");
+
+        return htmlStr.trim(); //返回文本字符串
+    }
     /**
      * 根据给定的正则表达式的匹配来拆分 value 为一个 String[]。
      * <p>

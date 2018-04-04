@@ -3,6 +3,7 @@ package com.xie.controller;
 import com.alibaba.fastjson.JSON;
 import com.xie.entity.ClassEntity;
 import com.xie.service.ClassService;
+import com.xie.service.TagService;
 import com.xie.util.LayuiResult;
 import com.xie.util.ResultSet;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.*;
 public class ClassController {
     @Autowired
     ClassService classService;
+    @Autowired
+    TagService tagService;
 
     @GetMapping
     public String classList(){
@@ -54,5 +57,10 @@ public class ClassController {
             return ResultSet.success();
         }
         return ResultSet.fail();
+    }
+
+    @GetMapping("/tag")
+    public ResultSet classAndTag(){
+        return ResultSet.success().add("classList",classService.ClassList()).add("tagList",tagService.tagList());
     }
 }

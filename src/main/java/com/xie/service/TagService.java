@@ -14,4 +14,5 @@ public interface TagService {
     int updateTag(TagEntity tagEntity);
     int deleteTag(Integer id);
     List<TagEntity> tagList();
+    int selectTagByName(String tag);
 }

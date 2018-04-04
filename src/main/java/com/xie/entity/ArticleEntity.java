@@ -23,6 +23,8 @@ public class ArticleEntity {
 
     private Date articleMtime;
 
+    private String articleText;
+
     private String articleBody;
 
     public Long getArticleId() {
@@ -103,6 +105,14 @@ public class ArticleEntity {
 
     public void setArticleMtime(Date articleMtime) {
         this.articleMtime = articleMtime;
+    }
+
+    public String getArticleText() {
+        return articleText;
+    }
+
+    public void setArticleText(String articleText) {
+        this.articleText = articleText == null ? null : articleText.trim();
     }
 
     public String getArticleBody() {
