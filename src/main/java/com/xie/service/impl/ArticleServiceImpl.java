@@ -52,7 +52,7 @@ public class ArticleServiceImpl implements ArticleService {
             criteria.andArticleTagLike(tag);
         }
         PageHelper.startPage(pageNumber,count);
-        List<ArticleEntity> list = articleEntityMapper.selectByExampleWithBLOBs(articleEntityExample);
+        List<ArticleEntity> list = articleEntityMapper.selectByExample(articleEntityExample);
         PageInfo<ArticleEntity> pageInfo = new PageInfo<ArticleEntity>(list);
         return pageInfo;
     }
@@ -62,7 +62,11 @@ public class ArticleServiceImpl implements ArticleService {
             articleEntity.setArticleCtime(new Date());
             articleEntity.setArticleMtime(new Date());
             String text = StringUtil.delHTMLTag(articleEntity.getArticleText());
-            articleEntity.setArticleText(text.substring(0,90));
+            if(text.length()>90){
+                articleEntity.setArticleText(text.substring(0,90));
+            }else{
+                articleEntity.setArticleText(text);
+            }
             String tags[] = articleEntity.getArticleTag().split(",");
             for (String tag:tags){
                 if (tagService.selectTagByName(tag)<1){

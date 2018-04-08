@@ -1,7 +1,9 @@
 package com.xie.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.xie.entity.AxisEntity;
 import com.xie.service.AxisService;
+import com.xie.util.LayuiResult;
 import com.xie.util.ResultSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +27,8 @@ public class AxisController {
         return ResultSet.fail();
     }
 
-    @PutMapping("/{id}")
-    public ResultSet updateAxis(@PathVariable("id") Integer id,AxisEntity axisEntity){
+    @PutMapping
+    public ResultSet updateAxis(AxisEntity axisEntity){
         if (axisService.updateAxis(axisEntity)>0){
             return ResultSet.success();
         }
@@ -34,8 +36,11 @@ public class AxisController {
     }
 
     @GetMapping
-    public ResultSet axisList(){
-        return ResultSet.success().add("axisList",axisService.axisList());
+    public String axisList(){
+        LayuiResult layuiResult = new LayuiResult();
+        layuiResult.setSuccess();
+        layuiResult.add("data",axisService.axisList());
+        return JSON.toJSON(layuiResult.getSet()).toString();
     }
 
     @DeleteMapping("/{id}")
