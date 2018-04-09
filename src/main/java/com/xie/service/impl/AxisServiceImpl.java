@@ -2,6 +2,7 @@ package com.xie.service.impl;
 
 import com.xie.dao.AxisEntityMapper;
 import com.xie.entity.AxisEntity;
+import com.xie.entity.AxisEntityExample;
 import com.xie.service.AxisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,8 @@ public class AxisServiceImpl implements AxisService{
     }
 
     public List<AxisEntity> axisList() {
-        return axisEntityMapper.selectByExample(null);
+        AxisEntityExample axisEntityExample = new AxisEntityExample();
+        axisEntityExample.setOrderByClause("time_axis_ctime desc");
+        return axisEntityMapper.selectByExample(axisEntityExample);
     }
 }

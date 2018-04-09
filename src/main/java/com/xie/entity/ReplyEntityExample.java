@@ -614,6 +614,76 @@ public class ReplyEntityExample {
             addCriterion("reply_mtime not between", value1, value2, "replyMtime");
             return (Criteria) this;
         }
+
+        public Criteria andReplyStatusIsNull() {
+            addCriterion("reply_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusIsNotNull() {
+            addCriterion("reply_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusEqualTo(String value) {
+            addCriterion("reply_status =", value, "replyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusNotEqualTo(String value) {
+            addCriterion("reply_status <>", value, "replyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusGreaterThan(String value) {
+            addCriterion("reply_status >", value, "replyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusGreaterThanOrEqualTo(String value) {
+            addCriterion("reply_status >=", value, "replyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusLessThan(String value) {
+            addCriterion("reply_status <", value, "replyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusLessThanOrEqualTo(String value) {
+            addCriterion("reply_status <=", value, "replyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusLike(String value) {
+            addCriterion("reply_status like", value, "replyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusNotLike(String value) {
+            addCriterion("reply_status not like", value, "replyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusIn(List<String> values) {
+            addCriterion("reply_status in", values, "replyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusNotIn(List<String> values) {
+            addCriterion("reply_status not in", values, "replyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusBetween(String value1, String value2) {
+            addCriterion("reply_status between", value1, value2, "replyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyStatusNotBetween(String value1, String value2) {
+            addCriterion("reply_status not between", value1, value2, "replyStatus");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

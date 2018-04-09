@@ -544,6 +544,76 @@ public class MessageEntityExample {
             addCriterion("message_mtime not between", value1, value2, "messageMtime");
             return (Criteria) this;
         }
+
+        public Criteria andMessageStatusIsNull() {
+            addCriterion("message_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusIsNotNull() {
+            addCriterion("message_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusEqualTo(String value) {
+            addCriterion("message_status =", value, "messageStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusNotEqualTo(String value) {
+            addCriterion("message_status <>", value, "messageStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusGreaterThan(String value) {
+            addCriterion("message_status >", value, "messageStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusGreaterThanOrEqualTo(String value) {
+            addCriterion("message_status >=", value, "messageStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusLessThan(String value) {
+            addCriterion("message_status <", value, "messageStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusLessThanOrEqualTo(String value) {
+            addCriterion("message_status <=", value, "messageStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusLike(String value) {
+            addCriterion("message_status like", value, "messageStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusNotLike(String value) {
+            addCriterion("message_status not like", value, "messageStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusIn(List<String> values) {
+            addCriterion("message_status in", values, "messageStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusNotIn(List<String> values) {
+            addCriterion("message_status not in", values, "messageStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusBetween(String value1, String value2) {
+            addCriterion("message_status between", value1, value2, "messageStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageStatusNotBetween(String value1, String value2) {
+            addCriterion("message_status not between", value1, value2, "messageStatus");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

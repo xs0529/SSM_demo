@@ -1,6 +1,7 @@
 package com.xie.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class MessageEntity {
     private Long messageId;
@@ -16,6 +17,18 @@ public class MessageEntity {
     private Date messageCtime;
 
     private Date messageMtime;
+
+    private String messageStatus;
+
+    private List<ReplyEntity>replyEntityList;
+
+    public List<ReplyEntity> getReplyEntityList() {
+        return replyEntityList;
+    }
+
+    public void setReplyEntityList(List<ReplyEntity> replyEntityList) {
+        this.replyEntityList = replyEntityList;
+    }
 
     public Long getMessageId() {
         return messageId;
@@ -71,5 +84,13 @@ public class MessageEntity {
 
     public void setMessageMtime(Date messageMtime) {
         this.messageMtime = messageMtime;
+    }
+
+    public String getMessageStatus() {
+        return messageStatus;
+    }
+
+    public void setMessageStatus(String messageStatus) {
+        this.messageStatus = messageStatus == null ? null : messageStatus.trim();
     }
 }

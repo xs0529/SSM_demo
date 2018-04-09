@@ -45,6 +45,8 @@ public class ArticleServiceImpl implements ArticleService {
         }
         if (reading != 0){
             articleEntityExample.setOrderByClause("article_reading desc");
+        }else{
+            articleEntityExample.setOrderByClause("article_mtime desc");
         }
         if (!tag.equals("0")){
             //Mybatis自动生成的查询selectByExample(TExample example) 中like需要自己写通配符

@@ -10,6 +10,7 @@
     <result column="reply_name" jdbcType="VARCHAR" property="replyName" />
     <result column="reply_ctime" jdbcType="TIMESTAMP" property="replyCtime" />
     <result column="reply_mtime" jdbcType="TIMESTAMP" property="replyMtime" />
+    <result column="reply_status" jdbcType="VARCHAR" property="replyStatus" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    reply_id, reply_body, user_id, message_id, user_name, reply_name, reply_ctime, reply_mtime
+    reply_id, reply_body, user_id, message_id, user_name, reply_name, reply_ctime, reply_mtime, 
+    reply_status
   </sql>
   <select id="selectByExample" parameterType="com.xie.entity.ReplyEntityExample" resultMap="BaseResultMap">
     select
@@ -105,10 +107,12 @@
   <insert id="insert" parameterType="com.xie.entity.ReplyEntity">
     insert into reply (reply_id, reply_body, user_id, 
       message_id, user_name, reply_name, 
-      reply_ctime, reply_mtime)
+      reply_ctime, reply_mtime, reply_status
+      )
     values (#{replyId,jdbcType=BIGINT}, #{replyBody,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, 
       #{messageId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{replyName,jdbcType=VARCHAR}, 
-      #{replyCtime,jdbcType=TIMESTAMP}, #{replyMtime,jdbcType=TIMESTAMP})
+      #{replyCtime,jdbcType=TIMESTAMP}, #{replyMtime,jdbcType=TIMESTAMP}, #{replyStatus,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.xie.entity.ReplyEntity">
     insert into reply
@@ -137,6 +141,9 @@
       <if test="replyMtime != null">
         reply_mtime,
       </if>
+      <if test="replyStatus != null">
+        reply_status,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="replyId != null">
@@ -162,6 +169,9 @@
       </if>
       <if test="replyMtime != null">
         #{replyMtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyStatus != null">
+        #{replyStatus,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -198,6 +208,9 @@
       <if test="record.replyMtime != null">
         reply_mtime = #{record.replyMtime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.replyStatus != null">
+        reply_status = #{record.replyStatus,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -212,7 +225,8 @@
       user_name = #{record.userName,jdbcType=VARCHAR},
       reply_name = #{record.replyName,jdbcType=VARCHAR},
       reply_ctime = #{record.replyCtime,jdbcType=TIMESTAMP},
-      reply_mtime = #{record.replyMtime,jdbcType=TIMESTAMP}
+      reply_mtime = #{record.replyMtime,jdbcType=TIMESTAMP},
+      reply_status = #{record.replyStatus,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -241,6 +255,9 @@
       <if test="replyMtime != null">
         reply_mtime = #{replyMtime,jdbcType=TIMESTAMP},
       </if>
+      <if test="replyStatus != null">
+        reply_status = #{replyStatus,jdbcType=VARCHAR},
+      </if>
     </set>
     where reply_id = #{replyId,jdbcType=BIGINT}
   </update>
@@ -252,7 +269,8 @@
       user_name = #{userName,jdbcType=VARCHAR},
       reply_name = #{replyName,jdbcType=VARCHAR},
       reply_ctime = #{replyCtime,jdbcType=TIMESTAMP},
-      reply_mtime = #{replyMtime,jdbcType=TIMESTAMP}
+      reply_mtime = #{replyMtime,jdbcType=TIMESTAMP},
+      reply_status = #{replyStatus,jdbcType=VARCHAR}
     where reply_id = #{replyId,jdbcType=BIGINT}
   </update>
 </mapper>

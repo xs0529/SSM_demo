@@ -19,6 +19,8 @@ public class ReplyEntity {
 
     private Date replyMtime;
 
+    private String replyStatus;
+
     public Long getReplyId() {
         return replyId;
     }
@@ -81,5 +83,13 @@ public class ReplyEntity {
 
     public void setReplyMtime(Date replyMtime) {
         this.replyMtime = replyMtime;
+    }
+
+    public String getReplyStatus() {
+        return replyStatus;
+    }
+
+    public void setReplyStatus(String replyStatus) {
+        this.replyStatus = replyStatus == null ? null : replyStatus.trim();
     }
 }
