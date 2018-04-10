@@ -38,9 +38,9 @@
         <table tableName="record" domainObjectName="RecordEntity"></table>
 
         <table tableName="tag" domainObjectName="TagEntity"></table>
-        <table tableName="time_axis" domainObjectName="AxisEntity"></table>
-        <table tableName="user" domainObjectName="UserEntity"></table>-->
-        <table tableName="reply" domainObjectName="ReplyEntity"></table>
-        <table tableName="message" domainObjectName="MessageEntity"></table>
+        <table tableName="time_axis" domainObjectName="AxisEntity"></table>-->
+        <table tableName="user" domainObjectName="UserEntity"></table>
+        <!--<table tableName="reply" domainObjectName="ReplyEntity"></table>
+        <table tableName="message" domainObjectName="MessageEntity"></table>-->
     </context>    
 </generatorConfiguration>     

@@ -17,6 +17,8 @@ public class UserEntity {
 
     private Date userMtime;
 
+    private String userStatus;
+
     public Long getUserId() {
         return userId;
     }
@@ -71,5 +73,13 @@ public class UserEntity {
 
     public void setUserMtime(Date userMtime) {
         this.userMtime = userMtime;
+    }
+
+    public String getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(String userStatus) {
+        this.userStatus = userStatus == null ? null : userStatus.trim();
     }
 }

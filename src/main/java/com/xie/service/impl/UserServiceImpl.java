@@ -2,6 +2,7 @@ package com.xie.service.impl;
 
 import com.xie.dao.UserEntityMapper;
 import com.xie.entity.UserEntity;
+import com.xie.entity.UserEntityExample;
 import com.xie.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,15 @@ public class UserServiceImpl implements UserService{
 
     public List<UserEntity> userList() {
         return userEntityMapper.selectByExample(null);
+    }
+
+    public UserEntity selectByEmail(String email) {
+        UserEntityExample userEntityExample = new UserEntityExample();
+        userEntityExample.createCriteria().andUserEmailEqualTo(email);
+        List<UserEntity> userEntities =  userEntityMapper.selectByExample(userEntityExample);
+        if (userEntities.size()>0){
+            return userEntities.get(0);
+        }
+        return null;
     }
 }

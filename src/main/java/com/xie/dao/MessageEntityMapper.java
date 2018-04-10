@@ -17,6 +17,7 @@ public interface MessageEntityMapper {
     int insertSelective(MessageEntity record);
 
     List<MessageEntity> selectByExample(MessageEntityExample example);
+    List<MessageEntity> selectByExample1(MessageEntityExample example);
 
     MessageEntity selectByPrimaryKey(Long messageId);
 

@@ -104,6 +104,21 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByExample1" parameterType="com.xie.entity.MessageEntityExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,<include refid="Base_Column_List2" />
+    from message LEFT JOIN reply ON message.message_id=reply.message_id AND message.message_status="ON" AND reply.reply_status="ON"
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

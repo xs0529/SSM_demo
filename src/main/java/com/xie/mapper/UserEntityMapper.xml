@@ -9,6 +9,7 @@
     <result column="user_address" jdbcType="VARCHAR" property="userAddress" />
     <result column="user_ctime" jdbcType="TIMESTAMP" property="userCtime" />
     <result column="user_mtime" jdbcType="TIMESTAMP" property="userMtime" />
+    <result column="user_status" jdbcType="VARCHAR" property="userStatus" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    user_id, user_name, user_email, user_ip, user_address, user_ctime, user_mtime
+    user_id, user_name, user_email, user_ip, user_address, user_ctime, user_mtime, user_status
   </sql>
   <select id="selectByExample" parameterType="com.xie.entity.UserEntityExample" resultMap="BaseResultMap">
     select
@@ -104,12 +105,12 @@
   <insert id="insert" parameterType="com.xie.entity.UserEntity">
     insert into user (user_id, user_name, user_email, 
       user_ip, user_address, user_ctime, 
-      user_mtime)
+      user_mtime, user_status)
     values (#{userId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, 
       #{userIp,jdbcType=VARCHAR}, #{userAddress,jdbcType=VARCHAR}, #{userCtime,jdbcType=TIMESTAMP}, 
-      #{userMtime,jdbcType=TIMESTAMP})
+      #{userMtime,jdbcType=TIMESTAMP}, #{userStatus,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xie.entity.UserEntity">
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="userId" parameterType="com.xie.entity.UserEntity">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -133,6 +134,9 @@
       <if test="userMtime != null">
         user_mtime,
       </if>
+      <if test="userStatus != null">
+        user_status,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -155,6 +159,9 @@
       </if>
       <if test="userMtime != null">
         #{userMtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -188,6 +195,9 @@
       <if test="record.userMtime != null">
         user_mtime = #{record.userMtime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.userStatus != null">
+        user_status = #{record.userStatus,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -201,7 +211,8 @@
       user_ip = #{record.userIp,jdbcType=VARCHAR},
       user_address = #{record.userAddress,jdbcType=VARCHAR},
       user_ctime = #{record.userCtime,jdbcType=TIMESTAMP},
-      user_mtime = #{record.userMtime,jdbcType=TIMESTAMP}
+      user_mtime = #{record.userMtime,jdbcType=TIMESTAMP},
+      user_status = #{record.userStatus,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -227,6 +238,9 @@
       <if test="userMtime != null">
         user_mtime = #{userMtime,jdbcType=TIMESTAMP},
       </if>
+      <if test="userStatus != null">
+        user_status = #{userStatus,jdbcType=VARCHAR},
+      </if>
     </set>
     where user_id = #{userId,jdbcType=BIGINT}
   </update>
@@ -237,7 +251,8 @@
       user_ip = #{userIp,jdbcType=VARCHAR},
       user_address = #{userAddress,jdbcType=VARCHAR},
       user_ctime = #{userCtime,jdbcType=TIMESTAMP},
-      user_mtime = #{userMtime,jdbcType=TIMESTAMP}
+      user_mtime = #{userMtime,jdbcType=TIMESTAMP},
+      user_status = #{userStatus,jdbcType=VARCHAR}
     where user_id = #{userId,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -3,6 +3,7 @@ package com.xie.controller;
 import com.github.pagehelper.PageInfo;
 import com.xie.entity.ArticleEntity;
 import com.xie.service.ArticleService;
+import com.xie.service.NewsService;
 import com.xie.util.ResultSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.*;
 public class ArticleController {
     @Autowired
     ArticleService articleService;
+    @Autowired
+    NewsService newsService;
     /*
      * @author 谢霜
      * @Description 分页查新博文
@@ -41,7 +44,7 @@ public class ArticleController {
             //是否根据标签查询，默认0不根据标签查询
             @RequestParam(value = "tag",defaultValue = "0")String tag) {
         PageInfo pageInfo = articleService.articleList(pageNumber,count,classification,reading,tag);
-        return ResultSet.success().add("pageInfo",pageInfo);
+        return ResultSet.success().add("pageInfo",pageInfo).add("news",newsService.newsList(null).get(0));
     }
     /*
      * @author 谢霜
@@ -52,7 +55,7 @@ public class ArticleController {
      */
     @GetMapping("/{id}")
     public ResultSet selectArticleById(@PathVariable("id")Long articleId){
-        return ResultSet.success().add("article",articleService.selectById(articleId));
+        return ResultSet.success().add("article",articleService.selectById(articleId)).add("news",newsService.newsList(null).get(0));
     }
     /*
      * @author 谢霜

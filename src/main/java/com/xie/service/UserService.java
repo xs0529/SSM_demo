@@ -14,4 +14,5 @@ public interface UserService {
     int updateUser(UserEntity userEntity);
     int deleteUser(long id);
     List<UserEntity> userList();
+    UserEntity selectByEmail(String email);
 }

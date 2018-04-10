@@ -180,6 +180,11 @@ public class MessageEntityExample {
             return (Criteria) this;
         }
 
+        public Criteria andReplyStatusEqualTo(String value) {
+            addCriterion("reply_status =", value, "replyStatus");
+            return (Criteria) this;
+        }
+
         public Criteria andMessageBodyNotEqualTo(String value) {
             addCriterion("message_body <>", value, "messageBody");
             return (Criteria) this;

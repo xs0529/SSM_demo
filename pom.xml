@@ -184,6 +184,28 @@
       <artifactId>commons-codec</artifactId>
       <version>1.11</version>
     </dependency>
+    <!--发送邮件的依赖-->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context-support</artifactId>
+          <version>4.3.8.RELEASE</version>
+          <scope>test</scope>
+      </dependency>
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.5.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-email</artifactId>
+      <version>1.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>4.3.8.RELEASE</version>
+    </dependency>
   </dependencies>
 
   <build>

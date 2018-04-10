@@ -36,6 +36,6 @@ public class MessageServiceImpl implements MessageService {
     }
 
     public List<MessageEntity> messageList(MessageEntityExample messageEntityExample) {
-        return messageEntityMapper.selectByExample(messageEntityExample);
+        return messageEntityMapper.selectByExample1(messageEntityExample);
     }
 }
