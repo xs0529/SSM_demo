@@ -40,6 +40,29 @@ public class ArticleServiceImpl implements ArticleService {
     public PageInfo<ArticleEntity> articleList(Integer pageNumber, Integer count, Integer classification, Integer reading, String tag) {
         ArticleEntityExample articleEntityExample = new ArticleEntityExample();
         ArticleEntityExample.Criteria criteria = articleEntityExample.createCriteria();
+        criteria.andArticleStateEqualTo("已发布");
+        if (classification != 999){
+            criteria.andClassificationIdEqualTo(classification);
+        }
+        if (reading != 0){
+            articleEntityExample.setOrderByClause("article_reading desc");
+        }else{
+            articleEntityExample.setOrderByClause("article_mtime desc");
+        }
+        if (!tag.equals("0")){
+            //Mybatis自动生成的查询selectByExample(TExample example) 中like需要自己写通配符
+            tag = "%"+tag+"%";
+            criteria.andArticleTagLike(tag);
+        }
+        PageHelper.startPage(pageNumber,count);
+        List<ArticleEntity> list = articleEntityMapper.selectByExample(articleEntityExample);
+        PageInfo<ArticleEntity> pageInfo = new PageInfo<ArticleEntity>(list);
+        return pageInfo;
+    }
+
+    public PageInfo<ArticleEntity> articleList2(Integer pageNumber, Integer count, Integer classification, Integer reading, String tag) {
+        ArticleEntityExample articleEntityExample = new ArticleEntityExample();
+        ArticleEntityExample.Criteria criteria = articleEntityExample.createCriteria();
         if (classification != 999){
             criteria.andClassificationIdEqualTo(classification);
         }
@@ -85,6 +108,36 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     public int updateArticle(ArticleEntity articleEntity) {
+        String text = StringUtil.delHTMLTag(articleEntity.getArticleText());
+        if(text.length()>90){
+            articleEntity.setArticleText(text.substring(0,90));
+        }else{
+            articleEntity.setArticleText(text);
+        }
+        String tags[] = articleEntity.getArticleTag().split(",");
+        for (String tag:tags){
+            if (tagService.selectTagByName(tag)<1){
+                TagEntity tagEntity = new TagEntity();
+                tagEntity.setTagName(tag);
+                tagService.addTag(tagEntity);
+            }
+        }
+        ClassEntity classEntity = classService.getClass(articleEntity.getClassificationId());
+        if (classEntity != null){
+            articleEntity.setClassificationName(classEntity.getClassificationName());
+        }
+        articleEntity.setArticleCtime(new Date());
+        articleEntity.setArticleMtime(new Date());
         return articleEntityMapper.updateByPrimaryKey(articleEntity);
+    }
+
+    public int updateArticleById(long id, String articleState) {
+        ArticleEntity articleEntity = articleEntityMapper.selectByPrimaryKey(id);
+        articleEntity.setArticleState(articleState);
+        return articleEntityMapper.updateByPrimaryKey(articleEntity);
+    }
+
+    public int deleteArticleById(long id) {
+        return articleEntityMapper.deleteByPrimaryKey(id);
     }
 }

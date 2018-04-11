@@ -1,9 +1,11 @@
 package com.xie.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
 import com.xie.entity.ArticleEntity;
 import com.xie.service.ArticleService;
 import com.xie.service.NewsService;
+import com.xie.util.LayuiResult;
 import com.xie.util.ResultSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -46,6 +48,24 @@ public class ArticleController {
         PageInfo pageInfo = articleService.articleList(pageNumber,count,classification,reading,tag);
         return ResultSet.success().add("pageInfo",pageInfo).add("news",newsService.newsList(null).get(0));
     }
+    @GetMapping("/layui")
+    public String allArticleByLayui(
+            //页码
+            @RequestParam(value = "page",defaultValue = "1") Integer pageNumber,
+            //记录数
+            @RequestParam(value = "limit",defaultValue = "10") Integer count,
+            //是否按照分类查询，默认999不按照分类查询
+            @RequestParam(value = "classification",defaultValue = "999")Integer classification,
+            //是否按照阅读量排序查询，默认0不按照阅读量排序查询
+            @RequestParam(value = "reading",defaultValue = "0")Integer reading,
+            //是否根据标签查询，默认0不根据标签查询
+            @RequestParam(value = "tag",defaultValue = "0")String tag) {
+        PageInfo pageInfo = articleService.articleList2(pageNumber,count,classification,reading,tag);
+        LayuiResult layuiResult = new LayuiResult();
+        layuiResult.setSuccess();
+        layuiResult.add("data",pageInfo.getList()).add("count",pageInfo.getTotal());
+        return JSON.toJSON(layuiResult.getSet()).toString();
+    }
     /*
      * @author 谢霜
      * @Description 查询博文
@@ -66,11 +86,20 @@ public class ArticleController {
      */
     @PostMapping
     public ResultSet insertArticle(ArticleEntity articleEntity){
-        if (articleService.addArticle(articleEntity)>0){
-            return ResultSet.success();
-        } else {
-            return ResultSet.fail();
+        if (articleEntity.getArticleId()==null){
+            if (articleService.addArticle(articleEntity)>0){
+                return ResultSet.success();
+            } else {
+                return ResultSet.fail();
+            }
+        }else {
+            if (articleService.updateArticle(articleEntity)>0){
+                return ResultSet.success();
+            } else {
+                return ResultSet.fail();
+            }
         }
+
     }
     /*
      * @author 谢霜
@@ -86,5 +115,26 @@ public class ArticleController {
         } else {
             return ResultSet.fail();
         }
+    }
+    @PutMapping("/{id}")
+    public ResultSet updateArticleById(@PathVariable("id")long id,@RequestParam("articleState")String articleState){
+        if (articleService.updateArticleById(id,articleState)>0){
+            return ResultSet.success();
+        } else {
+            return ResultSet.fail();
+        }
+    }
+    @DeleteMapping("/{id}")
+    public ResultSet deleteArticleById(@PathVariable("id")long id){
+        articleService.deleteArticleById(id);
+        return ResultSet.success();
+    }
+
+    @PostMapping("/delete")
+    public ResultSet deleteArticleAll(@RequestParam("articleId[]")long[] articleIds){
+        for (long id:articleIds) {
+            articleService.deleteArticleById(id);
+        }
+        return ResultSet.success();
     }
 }

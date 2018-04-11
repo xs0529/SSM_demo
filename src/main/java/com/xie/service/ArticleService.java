@@ -30,6 +30,8 @@ public interface ArticleService {
    */
     PageInfo<ArticleEntity> articleList(Integer pageNumber, Integer count, Integer classification,
                                         Integer reading, String tag);
+    PageInfo<ArticleEntity> articleList2(Integer pageNumber, Integer count, Integer classification,
+                                        Integer reading, String tag);
     /*
      * @author 谢霜
      * @Description 新增博文
@@ -47,4 +49,6 @@ public interface ArticleService {
      * @date 2018/4/2 11:28
      */
     int updateArticle(ArticleEntity articleEntity);
+    int updateArticleById(long id,String articleState);
+    int deleteArticleById(long id);
 }
