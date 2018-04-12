@@ -75,7 +75,9 @@ public class ArticleController {
      */
     @GetMapping("/{id}")
     public ResultSet selectArticleById(@PathVariable("id")Long articleId){
-        return ResultSet.success().add("article",articleService.selectById(articleId)).add("news",newsService.newsList(null).get(0));
+        ArticleEntity articleEntity = articleService.selectById(articleId);
+        articleService.articleReadingAdd(articleEntity);
+        return ResultSet.success().add("article",articleEntity).add("news",newsService.newsList(null).get(0));
     }
     /*
      * @author 谢霜

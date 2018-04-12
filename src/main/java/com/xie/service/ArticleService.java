@@ -51,4 +51,5 @@ public interface ArticleService {
     int updateArticle(ArticleEntity articleEntity);
     int updateArticleById(long id,String articleState);
     int deleteArticleById(long id);
+    int articleReadingAdd(ArticleEntity articleEntity);
 }

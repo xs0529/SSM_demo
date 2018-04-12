@@ -1,6 +1,9 @@
 package com.xie.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.xie.dao.UserEntityMapper;
+import com.xie.entity.MessageEntity;
 import com.xie.entity.UserEntity;
 import com.xie.entity.UserEntityExample;
 import com.xie.service.UserService;
@@ -47,5 +50,22 @@ public class UserServiceImpl implements UserService{
             return userEntities.get(0);
         }
         return null;
+    }
+
+    public PageInfo<UserEntity> userPageInfo(Integer pageNumber, Integer count) {
+        PageHelper.startPage(pageNumber,count);
+        List<UserEntity> list = userEntityMapper.selectByExample(null);
+        PageInfo<UserEntity> pageInfo = new PageInfo<UserEntity>(list);
+        return pageInfo;
+    }
+
+    public int updataUserStatus(long id, String status) {
+        UserEntity userEntity = userEntityMapper.selectByPrimaryKey(id);
+        userEntity.setUserStatus(status);
+        return userEntityMapper.updateByPrimaryKey(userEntity);
+    }
+
+    public UserEntity selectById(long id) {
+        return userEntityMapper.selectByPrimaryKey(id);
     }
 }

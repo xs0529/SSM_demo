@@ -4,12 +4,11 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mysql.jdbc.StringUtils;
 import com.xie.dao.ArticleEntityMapper;
-import com.xie.entity.ArticleEntity;
-import com.xie.entity.ArticleEntityExample;
-import com.xie.entity.ClassEntity;
-import com.xie.entity.TagEntity;
+import com.xie.dao.MessageEntityMapper;
+import com.xie.entity.*;
 import com.xie.service.ArticleService;
 import com.xie.service.ClassService;
+import com.xie.service.MessageService;
 import com.xie.service.TagService;
 import com.xie.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +31,10 @@ public class ArticleServiceImpl implements ArticleService {
     TagService tagService;
     @Autowired
     ClassService classService;
+    @Autowired
+    MessageService messageService;
+    @Autowired
+    MessageEntityMapper messageEntityMapper;
 
     public ArticleEntity selectById(long id) {
         return articleEntityMapper.selectByPrimaryKey(id);
@@ -138,6 +141,19 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     public int deleteArticleById(long id) {
+        MessageEntityExample messageEntityExample = new MessageEntityExample();
+        messageEntityExample.createCriteria().andArticleIdEqualTo(id);
+        List<MessageEntity> messageEntities = messageEntityMapper.selectByExample(messageEntityExample);
+        if (messageEntities.size()>0){
+            for (MessageEntity messageEntity:messageEntities){
+                messageService.deleteMessage(messageEntity.getMessageId());
+            }
+        }
         return articleEntityMapper.deleteByPrimaryKey(id);
+    }
+
+    public int articleReadingAdd(ArticleEntity articleEntity) {
+        articleEntity.setArticleReading(articleEntity.getArticleReading()+1);
+        return articleEntityMapper.updateByPrimaryKey(articleEntity);
     }
 }

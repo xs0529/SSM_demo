@@ -4,10 +4,7 @@ import com.xie.entity.AdminEntity;
 import com.xie.service.BlogerService;
 import com.xie.util.ResultSet;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author 谢霜
@@ -20,7 +17,7 @@ public class BlogerController {
     @Autowired
     BlogerService blogerService;
 
-    @PutMapping
+    @PostMapping
     public ResultSet updateBloger(AdminEntity adminEntity){
         if (blogerService.updateBloger(adminEntity)>0){
             return ResultSet.success();

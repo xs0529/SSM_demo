@@ -87,7 +87,7 @@ public class FileController {
             else{
                 //得到上传的文件名
                 String fileName = file.getOriginalFilename();
-                String path1 = "D:/blog/blogPage/images/";
+                String path1 = "/usr/local/blog/blogPage/images/";
                 //  此处未使用UUID来生成唯一标识,用日期做为标识
                 String path2 = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())+ fileName;
                 //把文件上传至path的路径

@@ -1,5 +1,6 @@
 package com.xie.service;
 
+import com.github.pagehelper.PageInfo;
 import com.xie.entity.MessageEntity;
 import com.xie.entity.MessageEntityExample;
 
@@ -15,4 +16,7 @@ public interface MessageService {
     int updateMessage(MessageEntity messageEntity);
     int deleteMessage(long id);
     List<MessageEntity> messageList(MessageEntityExample messageEntityExample);
+    List<MessageEntity> messageListLayui(MessageEntityExample messageEntityExample);
+    int updataMessageStatus(long id,String status);
+     PageInfo<MessageEntity> messagePageList (String status,Integer pageNumber, Integer count);
 }

@@ -95,8 +95,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    ,<include refid="Base_Column_List2" />
-    from message LEFT JOIN reply ON message.message_id=reply.message_id
+    from message
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -111,7 +110,7 @@
     </if>
     <include refid="Base_Column_List" />
     ,<include refid="Base_Column_List2" />
-    from message LEFT JOIN reply ON message.message_id=reply.message_id AND message.message_status="ON" AND reply.reply_status="ON"
+    from message LEFT JOIN reply ON message.message_id=reply.message_id AND message.message_status="通过" AND reply.reply_status="通过"
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>

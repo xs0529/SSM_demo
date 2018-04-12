@@ -1,5 +1,6 @@
 package com.xie.service;
 
+import com.github.pagehelper.PageInfo;
 import com.xie.entity.ReplyEntity;
 import com.xie.entity.ReplyEntityExample;
 
@@ -14,4 +15,6 @@ public interface ReplyService {
     int updateReply(ReplyEntity replyEntity);
     int deleteReply(long id);
     List<ReplyEntity> replyList(ReplyEntityExample replyEntityExample);
+    int updateReplyStatus(long id,String status);
+    PageInfo<ReplyEntity> replyPageInfo(String status,Integer pageNumber, Integer count);
 }
